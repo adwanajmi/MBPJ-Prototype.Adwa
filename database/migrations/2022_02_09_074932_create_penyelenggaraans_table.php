@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('penyelenggaraans', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->float('jumlahBayaran');
             $table->float('bakiBayaran');
             $table->timestamps();
