@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bil_agensi_luars', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('tajuk');
             $table->string('jenisBilMajlis');
             $table->date('tarikh');
