@@ -108,7 +108,7 @@
                       </a>
 
                       <ul class="nav collapse false" id="user">
-                          <li class="nav-item"><a class="nav-link" href="pages/user/profile.html">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('pembayaran.index') }}">
                               <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Kutipan</span>
                               </div>
 
