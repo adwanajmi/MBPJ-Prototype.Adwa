@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\pembayaran;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Response;
 
 class StorepembayaranRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class StorepembayaranRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,22 @@ class StorepembayaranRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'namaPembayar' => [
+                'string',
+                'required',
+            ],
+            // 'tarikhPembayaran' => [
+            //     // 'date_format:' . config('panel.date_format'),
+            //     'nullable',
+            // ],
+            'kaedahPembayaran' => [
+                'string',
+                'required',
+            ],
+            'totalPembayaran' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

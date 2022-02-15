@@ -1,6 +1,14 @@
 @extends('base')
 @section('content')
 
+<a href="/pembayaran/create">Create New Pembayaran</a>
+
+<ul>
+@foreach ($pembayaran as $pembayaran)
+    <li><a href="/pembayaran/{{$pembayaran->id}}">Nama Pembayar: {{ $pembayaran->namaPembayar }}</a>, Tarikh: {{ $pembayaran->tarikhPembayaran }}, Jumlah: {{ $pembayaran->totalPembayaran }}</li>
+@endforeach
+</ul>
+
 <div class="card mb-3">
     <div class="card-header">
       <div class="row align-items-center">
@@ -39,41 +47,7 @@
     </div>
   </div>
 
-  <div id="myDIV" class="card mb-3 mb-lg-0">
-    <div class="card-header">
-      <h5 class="mb-0">Pembayaran</h5>
-    </div>
-    <div class="card-body bg-light">
-      <div class="position-relative rounded-1 border bg-white dark__bg-1100 p-3">
-        <div class="position-absolute end-0 top-0 mt-2 me-3 z-index-1">
-        </div>
-        <div class="row gx-2">
-          <div class="col-sm-6 mb-3">
-            <label class="form-label" for="field-name">Nama Pembayar</label>
-            <input class="form-control form-control-sm" id="field-name" type="text" placeholder="Nama (e.g. Kasim Selamat)">
-          </div>
-          <div class="col-sm-6 mb-3">
-            <label class="form-label" for="datepicker">Tarikh</label>
-            <input class="form-control datetimepicker" id="datepicker" type="text" placeholder="d/m/y" data-options='{"disableMobile":true}' />
-          </div>
-          <div class="col-sm-6 mb-3">
-            <label class="form-label" for="field-type">Kaedah Pembayaran</label>
-            <select class="form-select form-select-sm" id="field-type">
-              <option>Pilih Bayaran</option>
-              <option>Tunai</option>
-              <option>Cek</option>
-              <option>Kad Kredit</option>
-            </select>
-          </div>
-          <div class="col-sm-6 mb-3">
-            <label class="form-label" for="field-name">Jumlah</label>
-            <input class="form-control form-control-sm" id="field-name" type="float">
-          </div>
-        </div>
-      </div>
-      <div class="card-footer border-top text-end"><a class="btn btn-falcon-default btn-sm ms-2" href="/pembayaran/create"><svg class="svg-inline--fa fa-check fa-w-16 fs--2 me-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg><!-- <span class="fas fa-check fs--2 me-1"></span> Font Awesome fontawesome.com -->Teruskan</a></div>
-    </div>
-  </div>
+
 
 
 

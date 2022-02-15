@@ -15,10 +15,9 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $pembayaran = pembayaran::all();
-        return view('pembayaran.index', [
-            'pembayaran'=>$pembayaran,
-        ]);
+        $pembayaran = Pembayaran::all();
+
+        return view('pembayaran.index', compact('pembayaran'));
     }
 
     /**
@@ -39,14 +38,9 @@ class PembayaranController extends Controller
      */
     public function store(StorepembayaranRequest $request)
     {
-        $pembayaran = new pembayaran();
-        $pembayaran-> namaPembayar = $request->namaPembayar;
-        $pembayaran-> tarikhPembayaran = $request->tarikhPembayaran;
-        $pembayaran-> kaedahPembayaran = $request->kaedahPembayaran;
-        $pembayaran-> totalPembayaran = $request-> totalPembayaran;
+        $pembayaran = pembayaran::create($request->all());
 
-        $pembayaran->save();
-        return redirect('/pembayaran');
+        return redirect()->route('pembayaran.index');
     }
 
     /**
@@ -57,7 +51,9 @@ class PembayaranController extends Controller
      */
     public function show(pembayaran $pembayaran)
     {
-        //
+        return view('pembayaran.show', [
+            'pembayaran'=>$pembayaran
+        ]);
     }
 
     /**
@@ -82,14 +78,8 @@ class PembayaranController extends Controller
      */
     public function update(UpdatepembayaranRequest $request, pembayaran $pembayaran)
     {
-       
-        $pembayaran-> namaPembayar = $request->namaPembayar;
-        $pembayaran-> tarikhPembayaran = $request->tarikhPembayaran;
-        $pembayaran-> kaedahPembayaran = $request->kaedahPembayaran;
-        $pembayaran-> totalPembayaran = $request-> totalPembayaran;
-
-        $pembayaran->save();
-        return redirect('/pembayaran');
+        $pembayaran->update($request->all());
+        return redirect()->route('pembayaran.index');
     }
 
     /**
@@ -100,6 +90,6 @@ class PembayaranController extends Controller
      */
     public function destroy(pembayaran $pembayaran)
     {
-        //
+        $pembayaran->delete();
     }
 }

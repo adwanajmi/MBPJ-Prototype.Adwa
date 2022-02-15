@@ -1,7 +1,9 @@
 @extends('base')
 @section('content')
 
-<form>
+<form method="POST" action="{{ route('pembayaran.update', [$pembayaran->id]) }}" enctype="multipart/form-data">
+    @method('PUT')
+    @csrf
     <div class="mb-3">
       <label class="form-label" for="basic-form-name">Name</label>
       <input class="form-control" id="basic-form-name" type="text" placeholder="Name" />
