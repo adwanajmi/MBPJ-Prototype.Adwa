@@ -38,22 +38,9 @@ class PembayaranController extends Controller
      */
     public function store(StorepembayaranRequest $request)
     {
-        $validated = $request->validate([
-            'namaPembayar' => 'required|max:255',
-            'tarikhPembayaran' => 'required',
-            'kaedahPembayaran' => 'required',
-            'totalPembayaran' => 'required',
-        ]);
+        $pembayaran = pembayaran::create($request->all());
 
-        $pembayaran = new Pembayaran();
-
-        $pembayaran-> namaPembayar = $request->namaPembayar;
-        $pembayaran-> tarikhPembayaran = $request->tarikhPembayaran;
-        $pembayaran-> kaedahPembayaran = $request->kaedahPembayaran;
-        $pembayaran-> totalPembayaran = $request-> totalPembayaran;
-
-        $pembayaran->save();
-        return redirect('/pembayaran');
+        return redirect()->route('pembayaran.index');
     }
 
     /**
@@ -91,14 +78,8 @@ class PembayaranController extends Controller
      */
     public function update(UpdatepembayaranRequest $request, pembayaran $pembayaran)
     {
-
-        $pembayaran-> namaPembayar = $request->namaPembayar;
-        $pembayaran-> tarikhPembayaran = $request->tarikhPembayaran;
-        $pembayaran-> kaedahPembayaran = $request->kaedahPembayaran;
-        $pembayaran-> totalPembayaran = $request-> totalPembayaran;
-
-        $pembayaran->save();
-        return redirect('/pembayaran');
+        $pembayaran->update($request->all());
+        return redirect()->route('pembayaran.index');
     }
 
     /**
@@ -109,6 +90,6 @@ class PembayaranController extends Controller
      */
     public function destroy(pembayaran $pembayaran)
     {
-        //
+        $pembayaran->delete();
     }
 }

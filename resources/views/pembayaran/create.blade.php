@@ -11,23 +11,23 @@
           <div class="position-absolute end-0 top-0 mt-2 me-3 z-index-1">
           </div>
 
-    <form method="POST" action="/pembayaran">
+    <form method="POST" action="{{ route('pembayaran.store') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="row gx-2">
             <div class="col-sm-6 mb-3">
-              <label class="form-label" for="field-name">Nama Pembayar</label>
-              <input class="form-control form-control-sm" id="field-name" type="text" placeholder="Nama (e.g. Kasim Selamat)">
+              <label class="form-label" for="namaPembayar">Nama Pembayar</label>
+              <input class="form-control form-control-sm" name="namaPembayar" id="namaPembayar" type="text" placeholder="Nama (e.g. Kasim Selamat)">
             </div>
             <div class="col-sm-6 mb-3">
 
-                <label class="form-label" for="datepicker">Tarikh</label>
-                <input class="form-control datetimepicker" id="datepicker" type="text" placeholder="d/m/y" data-options='{"disableMobile":true}' />
+                <label class="form-label" for="tarikhPembayaran">Tarikh</label>
+                <input class="form-control date" id="tarikhPembayaran" name="tarikhPembayaran" type="text" placeholder="d/m/y" data-options='{"disableMobile":true}' />
               </div>
               <div class="col-sm-6 mb-3">
 
-                <label class="form-label" for="field-type">Kaedah Pembayaran</label>
-                <select class="form-select form-select-sm" id="field-type">
+                <label class="form-label" for="kaedahPembayaran">Kaedah Pembayaran</label>
+                <select class="form-select form-select-sm" id="kaedahPembayaran" name="kaedahPembayaran">
                   <option>Pilih Bayaran</option>
                   <option>Tunai</option>
                   <option>Cek</option>
@@ -36,8 +36,8 @@
               </div>
               <div class="col-sm-6 mb-3">
 
-                <label class="form-label" for="field-name">Jumlah</label>
-                <input class="form-control form-control-sm" id="field-name" type="float">
+                <label class="form-label" for="totalPembayaran">Jumlah</label>
+                <input class="form-control form-control-sm" id="totalPembayaran" name="totalPembayaran" type="number" value="{{ old('totalPembayaran', '') }}>">
               </div>
             </div>
           </div>
