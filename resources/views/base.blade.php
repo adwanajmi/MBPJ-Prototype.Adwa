@@ -96,7 +96,7 @@
                       </div>
                     </a>
                     <ul class="nav collapse show" id="dashboard">
-                      <li class="nav-item"><a class="nav-link active" href="/audit">
+                      <li class="nav-item"><a class="nav-link active" href="{{ route('audit.index') }}">
                           <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Audit Trail</span>
                           </div>
                         </a>
@@ -108,7 +108,7 @@
                       </a>
 
                       <ul class="nav collapse false" id="user">
-                          <li class="nav-item"><a class="nav-link" href="{{ route('pembayaran.index') }}">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('kutipan.index') }}">
                               <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Kutipan</span>
                               </div>
 
@@ -116,13 +116,13 @@
                             </a>
                             <!-- more inner pages-->
                           </li>
-                          <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('pembayaran.index') }}">
                               <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Transaksi Pembayaran</span>
                               </div>
                             </a>
                             <!-- more inner pages-->
                           </li>
-                          <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('laporan.index') }}">
                               <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Laporan</span>
                               </div>
                             </a>
@@ -137,7 +137,7 @@
                       </a>
 
                       <ul class="nav collapse false" id="user">
-                          <li class="nav-item"><a class="nav-link" href="/pembayaran">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('pembayaran.index') }}">
                               <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pembayaran</span>
                               </div>
 
@@ -145,7 +145,7 @@
                             </a>
                             <!-- more inner pages-->
                           </li>
-                          <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
+                          <li class="nav-item"><a class="nav-link" href="{{ route('penyelenggaran.index') }}">
                               <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Penyelenggaraan</span>
                               </div>
                             </a>
