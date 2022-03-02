@@ -34,6 +34,34 @@
           <th scope="col">Jumlah Pembayaran (RM)</th>
           <th scope="col">Actions</th>
 
+          <td class="">
+            <div>
+                <div id="outer">
+                    <div class="inner">
+                    <a class="btn btn-info" href="{{ route('pembayaran.show',$pembayaran->id) }}">Show</a>
+                    </div>
+                    <div class="inner">
+                    <a class="btn btn-primary" href="{{ route('pembayaran.edit',$pembayaran->id) }}">Edit</a>
+                    </div>
+                    <div class="inner">
+                        <form action="{{ route('pembayaran.destroy',$pembayaran->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+          </td>
+        </tr>
+
+        @endforeach
+
+
+      </tbody>
+    </table>
+  </div>
 
         </tr>
       </thead>

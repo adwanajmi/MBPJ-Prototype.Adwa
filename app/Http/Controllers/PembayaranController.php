@@ -75,6 +75,10 @@ class PembayaranController extends Controller
      */
     public function update(UpdatepembayaranRequest $request, pembayaran $pembayaran)
     {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         $pembayaran->update($request->all());
         return redirect()->route('pembayaran.index');
     }
