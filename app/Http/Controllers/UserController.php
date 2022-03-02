@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\StoreuserRequest;
+use App\Http\Requests\UpdateuserRequest;
 
 use App\Models\User;
+
 
 class UserController extends Controller
 {
@@ -14,10 +17,8 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        // dd($user);
-        return view('user.index', [
-            'user'=>$user,
-        ]);
+        return view ('user.index',compact('user'));
+
     }
 
     /**
@@ -27,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('user.create');
     }
 
     /**
@@ -38,7 +39,9 @@ class UserController extends Controller
      */
     public function store(StoreuserRequest $request)
     {
-        //
+        $user = user::create($request->all());
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -49,7 +52,8 @@ class UserController extends Controller
      */
     public function show(user $user)
     {
-        //
+        return view('user.show', compact('user'));
+
     }
 
     /**
@@ -60,9 +64,8 @@ class UserController extends Controller
      */
     public function edit(user $user)
     {
-        return view('user.edit', [
-            'user'=>$user
-        ]);
+        return view('user.edit',compact('user'));
+
     }
 
     /**
@@ -74,7 +77,9 @@ class UserController extends Controller
      */
     public function update(UpdateuserRequest $request, user $user)
     {
-        //
+        $user->update($request->all());
+
+         return redirect()->route('user.index');
     }
 
     /**
@@ -85,6 +90,9 @@ class UserController extends Controller
      */
     public function destroy(user $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('user.index')
+                        ->with('success','user deleted successfully');
     }
 }

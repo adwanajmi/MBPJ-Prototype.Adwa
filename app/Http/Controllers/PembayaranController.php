@@ -16,8 +16,8 @@ class PembayaranController extends Controller
     public function index()
     {
         $pembayaran = Pembayaran::all();
-
         return view('pembayaran.index', compact('pembayaran'));
+
     }
 
     /**
@@ -39,8 +39,7 @@ class PembayaranController extends Controller
     public function store(StorepembayaranRequest $request)
     {
         $pembayaran = pembayaran::create($request->all());
-
-        return redirect()->route('pembayaran.index');
+        return redirect()->route('pembayaran.show', $pembayaran);
     }
 
     /**
@@ -51,9 +50,8 @@ class PembayaranController extends Controller
      */
     public function show(pembayaran $pembayaran)
     {
-        return view('pembayaran.show', [
-            'pembayaran'=>$pembayaran
-        ]);
+        return view('pembayaran.show', compact('pembayaran'));
+
     }
 
     /**
@@ -64,9 +62,8 @@ class PembayaranController extends Controller
      */
     public function edit(pembayaran $pembayaran)
     {
-        return view('pembayaran.edit', [
-            'pembayaran'=>$pembayaran
-        ]);
+        return view('pembayaran.edit',compact('pembayaran'));
+
     }
 
     /**
@@ -78,6 +75,10 @@ class PembayaranController extends Controller
      */
     public function update(UpdatepembayaranRequest $request, pembayaran $pembayaran)
     {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         $pembayaran->update($request->all());
         return redirect()->route('pembayaran.index');
     }
@@ -91,5 +92,9 @@ class PembayaranController extends Controller
     public function destroy(pembayaran $pembayaran)
     {
         $pembayaran->delete();
+
+        return redirect()->route('pembayaran.index')
+                        ->with('success','Pembayaran deleted successfully');
+
     }
 }

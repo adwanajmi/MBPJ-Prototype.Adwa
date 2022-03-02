@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class bilAgensiLuar extends Model
 {
     use HasFactory;
+
+    public $table = 'bil_agensi_luars';
+
+
+    protected $fillable = [
+
+        'tajuk',
+        'jenisBilMajlis',
+        'tarikh',
+        'totalBayaran',
+
+   ];
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('namaPembayar');
-            $table->date('tarikhPembayaran');
+            $table->string('tarikhPembayaran');
             $table->string('kaedahPembayaran');
             $table->string('totalPembayaran');
             $table->timestamps();

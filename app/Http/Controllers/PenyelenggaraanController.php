@@ -15,10 +15,9 @@ class PenyelenggaraanController extends Controller
      */
     public function index()
     {
-        $penyelenggaraan = penyelenggaraan::all();
-        return view('penyelenggaraan.index', [
-            'penyelenggaraan'=>$penyelenggaraan,
-        ]);
+        $penyelenggaraan = Penyelenggaraan::all();
+        return view('penyelenggaraan.index', compact('penyelenggaraan'));
+
 
     }
 
@@ -40,12 +39,8 @@ class PenyelenggaraanController extends Controller
      */
     public function store(StorepenyelenggaraanRequest $request)
     {
-        $penyelenggaraan = new penyelenggaraan();
-        $penyelenggaraan-> jumlahBayaran = $request->jumlahBayaran;
-        $penyelenggaraan-> bakiBayaran = $request->bakiBayaran;
-
-        $penyelenggaraan-> save();
-        return redirect('/penyelenggaraan');
+        $penyelenggaraan = penyelenggaraan::create($request->all());
+        return redirect()->route('penyelenggaraan.index');
     }
 
     /**
@@ -56,7 +51,8 @@ class PenyelenggaraanController extends Controller
      */
     public function show(penyelenggaraan $penyelenggaraan)
     {
-        //
+        return view('penyelenggaraan.show', compact('penyelenggaraan'));
+
     }
 
     /**
@@ -67,7 +63,8 @@ class PenyelenggaraanController extends Controller
      */
     public function edit(penyelenggaraan $penyelenggaraan)
     {
-        //
+        return view('penyelenggaraan.edit',compact('penyelenggaraan'));
+
     }
 
     /**
@@ -79,7 +76,8 @@ class PenyelenggaraanController extends Controller
      */
     public function update(UpdatepenyelenggaraanRequest $request, penyelenggaraan $penyelenggaraan)
     {
-        //
+        $penyelenggaraan->update($request->all());
+        return redirect()->route('penyelenggaraan.index');
     }
 
     /**
@@ -90,6 +88,10 @@ class PenyelenggaraanController extends Controller
      */
     public function destroy(penyelenggaraan $penyelenggaraan)
     {
-        //
+        $penyelenggaraan->delete();
+
+        return redirect()->route('penyelenggaraan.index')
+                        ->with('success','penyelenggaraan deleted successfully');
+
     }
 }

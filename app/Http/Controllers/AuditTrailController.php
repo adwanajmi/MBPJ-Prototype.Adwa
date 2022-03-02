@@ -16,9 +16,7 @@ class AuditTrailController extends Controller
     public function index()
     {
         $audit_trail = auditTrail::all();
-        return view('audit.index',[
-            'audit_trail'=>$audit_trail,
-        ]);
+        return view ('audit.index',compact('audit_trail'));
     }
 
     /**
@@ -39,17 +37,9 @@ class AuditTrailController extends Controller
      */
     public function store(StoreauditTrailRequest $request)
     {
-        $audit_trail = new auditTrail();
-        $audit_trail->user = $request->user;
-        $audit_trail->tarikh = $request->tarikh;
-        $audit_trail->activity = $request->activity;
-        if ($request->hasFile('doc')) {
-            // dd("adafile");
-            $audit_trail->doc = $request->file('doc')->store('evidenceP');
-        }
+        $audit_trail = auditTrail::create($request->all());
 
-        $audit_trail->save();
-        return redirect('/audit');
+        return redirect()->route('audit.index');
     }
 
     /**
@@ -60,7 +50,8 @@ class AuditTrailController extends Controller
      */
     public function show(auditTrail $auditTrail)
     {
-        //
+        return view('audit.show',compact('auditTrail'));
+
     }
 
     /**
@@ -69,11 +60,11 @@ class AuditTrailController extends Controller
      * @param  \App\Models\auditTrail  $auditTrail
      * @return \Illuminate\Http\Response
      */
-    public function edit(auditTrail $auditTrail)
+    public function edit($auditTrail)
     {
-        return view('audit.edit',[
-            'audit'=>$auditTrail
-        ]);
+        $auditTrail = auditTrail::where('id', $auditTrail)->first();
+        return view('audit.edit',compact('auditTrail'));
+
     }
 
     /**
@@ -83,23 +74,15 @@ class AuditTrailController extends Controller
      * @param  \App\Models\auditTrail  $auditTrail
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateauditTrailRequest $request, auditTrail $auditTrail)
+    public function update(UpdateauditTrailRequest $request, $auditTrail)
     {
          // $audit_trail = audit_trail::find($id);
-         $auditTrail->user = $request->user;
-         $auditTrail->doc = $request->doc;
-         $auditTrail->tarikh = $request->tarikh;
-         $auditTrail->activity = $request->activity;
-         // $auditTrail->doc = $request->doc;
-         if ($request->hasFile('doc')) {
-             // dd("adafile");
-             // $auditTrail-> = $request->file('doc')->store('docs');
-             $auditTrail->doc = $request->file('doc')->store('doc');
-         }
+         $auditTrail = auditTrail::where('id', $auditTrail)->first();
 
-         $auditTrail->save();
-         return redirect('/audit');
-    }
+         $auditTrail->update($request->all());
+
+         return redirect()->route('audit.index');
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -109,6 +92,9 @@ class AuditTrailController extends Controller
      */
     public function destroy(auditTrail $auditTrail)
     {
-        //
+        $auditTrail->delete();
+
+        return redirect()->route('audit.index')
+                        ->with('success','Audit deleted successfully');
     }
 }

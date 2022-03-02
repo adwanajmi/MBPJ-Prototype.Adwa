@@ -54,6 +54,9 @@
     </script>
   </head>
 
+  @if (auth()-> user()->role =="admin"|| auth()-> user()->role =="admin")
+
+  @endif
 
   <body>
 
@@ -88,101 +91,95 @@
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
-              <div class="navbar-vertical-content scrollbar">
-                <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
-                  <li class="nav-item">
-                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
-                      <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span>
-                      </div>
-                    </a>
-                    <ul class="nav collapse show" id="dashboard">
-                      <li class="nav-item"><a class="nav-link active" href="/audit">
-                          <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Audit Trail</span>
-                          </div>
-                        </a>
-                        <!-- more inner pages-->
-                      </li>
-                  <!-- parent pages--><a class="nav-link dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
-                      <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Penyelia</span>
-                      </div>
+                <div class="navbar-vertical-content scrollbar">
+                  <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+                    <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="/dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span>
+                        </div>
                       </a>
 
-                      <ul class="nav collapse false" id="user">
-                          <li class="nav-item"><a class="nav-link" href="{{ route('pembayaran.index') }}">
-                              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Kutipan</span>
-                              </div>
 
+                      @if (auth()-> user()->role =="Penyelia" || auth()-> user()->role =="Admin")
 
-                            </a>
-                            <!-- more inner pages-->
-                          </li>
-                          <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
-                              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Transaksi Pembayaran</span>
-                              </div>
-                            </a>
-                            <!-- more inner pages-->
-                          </li>
-                          <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
-                              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Laporan</span>
-                              </div>
-                            </a>
-                            <!-- more inner pages-->
-                          </li>
-
-                        </ul>
-                    </a>
-                   <!-- parent pages--><a class="nav-link dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
-                      <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Pelanggan</span>
-                      </div>
-                      </a>
-
-                      <ul class="nav collapse false" id="user">
-                          <li class="nav-item"><a class="nav-link" href="/pembayaran">
-                              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pembayaran</span>
-                              </div>
-
-
-                            </a>
-                            <!-- more inner pages-->
-                          </li>
-                          <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
-                              <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Penyelenggaraan</span>
-                              </div>
-                            </a>
-                            <!-- more inner pages-->
-                          </li>
-
-                        </ul>
-                    </a>
-                  <!-- parent pages--><a class="nav-link dropdown-indicator" href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="email">
-                      <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span class="nav-link-text ps-1">Bil Majlis</span>
-                      </div>
-                  </a>
-                  <!-- parent pages--><a class="nav-link dropdown-indicator" href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="email">
-                      <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span class="nav-link-text ps-1">Bil Agensi Luar</span>
-                      </div>
-                  </a>
-
-                    <ul class="nav collapse false" id="pricing">
-                      <li class="nav-item"><a class="nav-link" href="pages/pricing/pricing-default.html">
-                          <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Transaksi Pembayaran</span>
+                      <a class="nav-link" href="/audit" role="button">
+                          <div class="d-flex align-items-center"><span class="nav-link-icon"><svg class="svg-inline--fa fa-comments fa-w-18"  ></svg></span><span class="nav-link-text ps-1">Audit Trail</span>
                           </div>
                         </a>
-                        <!-- more inner pages-->
-                      </li>
-                      <li class="nav-item"><a class="nav-link" href="pages/pricing/pricing-alt.html">
-                          <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Kutipan</span>
-                          </div>
+
+                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Penyelia</span>
+                        </div>
                         </a>
-                        <!-- more inner pages-->
-                      </li>
-                    </ul>
+
+                        <ul class="nav collapse false" id="user">
+                            <li class="nav-item"><a class="nav-link" href="/kutipan">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Kutipan</span>
+                                </div>
+
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/transaksi">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Transaksi Pembayaran</span>
+                                </div>
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/laporan">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Laporan</span>
+                                </div>
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link" href="/bilMajlis">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bil Majlis</span>
+                                </div>
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link" href="/bilAgensiLuar">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bil Agensi Luar</span>
+                                </div>
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+
+                        </ul>
+
+                    @endif
+
+                    @if (auth()-> user()->role =="Pelanggan")
+                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Pelanggan</span>
+                        </div>
+                        </a>
+
+                        <ul class="nav collapse false" id="user">
+                            <li class="nav-item"><a class="nav-link" href="/pembayaran/create">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pembayaran</span>
+                                </div>
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/penyelenggaraan">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Penyelenggaraan</span>
+                                </div>
+                              </a>
+                              <!-- more inner pages-->
+                            </li>
+
+                        </ul>
+
+                    @endif
 
 
 
+                </div>
               </div>
-            </div>
-          </nav>
+            </nav>
           <div class="content">
 
             <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand">
@@ -199,27 +196,39 @@
               </ul>
 
               <div class="card-body">
-                  @if (session('status'))
-                      <div class="alert alert-success" role="alert">
-                          {{ session('status') }}
-                      </div>
-                  @endif
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
 
-                  @can('isAdmin')
-                      <div class="btn btn-success btn-lg">
-                        Admin Access
-                      </div>
-                  @elsecan('isPenyelia')
-                      <div class="btn btn-primary btn-lg">
-                        Penyelia Access
-                      </div>
-                  @else
-                      <div class="btn btn-info btn-lg">
-                        You are Pelanggan
-                      </div>
-                  @endcan
+                @if(Auth::check() && Auth::user()->role == "Admin")
 
-              </div>
+                <div class="btn btn-success btn-lg">
+                    Admin Access
+                </div>
+
+                @endif
+
+                @if(Auth::check() && Auth::user()->role == "Penyelia")
+
+                <div class="btn btn-success btn-lg">
+                    Penyelia Access
+                </div>
+
+                @endif
+
+                @if(Auth::check() && Auth::user()->role == "Pelanggan")
+
+                <div class="btn btn-success btn-lg">
+                    Pelanggan
+                </div>
+
+                @endif
+
+
+
+            </div>
 
 
               <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
@@ -268,56 +277,7 @@
             </div>
 
           </div>
-          <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
-            <div class="modal-dialog mt-6" role="document">
-              <div class="modal-content border-0">
-                <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                  <div class="position-relative z-index-1 light">
-                    <h4 class="mb-0 text-white" id="authentication-modal-label">Register</h4>
-                    <p class="fs--1 mb-0 text-white">Please create your free Falcon account</p>
-                  </div>
-                  <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body py-4 px-5">
-                  <form>
-                    <div class="mb-3">
-                      <label class="form-label" for="modal-auth-name">Name</label>
-                      <input class="form-control" type="text" autocomplete="on" id="modal-auth-name" />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="modal-auth-email">Email address</label>
-                      <input class="form-control" type="email" autocomplete="on" id="modal-auth-email" />
-                    </div>
-                    <div class="row gx-2">
-                      <div class="mb-3 col-sm-6">
-                        <label class="form-label" for="modal-auth-password">Password</label>
-                        <input class="form-control" type="password" autocomplete="on" id="modal-auth-password" />
-                      </div>
-                      <div class="mb-3 col-sm-6">
-                        <label class="form-label" for="modal-auth-confirm-password">Confirm Password</label>
-                        <input class="form-control" type="password" autocomplete="on" id="modal-auth-confirm-password" />
-                      </div>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="modal-auth-register-checkbox" />
-                      <label class="form-label" for="modal-auth-register-checkbox">I accept the <a href="#!">terms </a>and <a href="#!">privacy policy</a></label>
-                    </div>
-                    <div class="mb-3">
-                      <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Register</button>
-                    </div>
-                  </form>
-                  <div class="position-relative mt-5">
-                    <hr class="bg-300" />
-                    <div class="divider-content-center">or register with</div>
-                  </div>
-                  <div class="row g-2 mt-2">
-                    <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                    <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </main>
     <!-- ===============================================-->

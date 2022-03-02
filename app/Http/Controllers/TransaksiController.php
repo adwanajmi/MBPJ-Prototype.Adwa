@@ -15,10 +15,8 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $transaksi = transaksi::all();
-        return view('transaksi.index', [
-            'transaksi'=>$transaksi,
-        ]);
+        $transaksi = Transaksi::all();
+        return view ('transaksi.index',compact('transaksi'));
     }
 
     /**
@@ -39,12 +37,9 @@ class TransaksiController extends Controller
      */
     public function store(StoretransaksiRequest $request)
     {
-        $transaksi = new transaksi();
-        $transaksi-> jumlahBayaran = $transaksi->jumlahBayaran;
-        $transaksi-> jenisLaporan = $transaksi->jenisLaporan;
+        $transaksi = transaksi::create($request->all());
 
-        $transaksi-> save();
-        return redirect('/laporan');
+        return redirect()->route('transaksi.index');
     }
 
     /**
@@ -55,7 +50,8 @@ class TransaksiController extends Controller
      */
     public function show(transaksi $transaksi)
     {
-        //
+        return view('transaksi.show', compact('transaksi'));
+
     }
 
     /**
@@ -66,7 +62,8 @@ class TransaksiController extends Controller
      */
     public function edit(transaksi $transaksi)
     {
-        //
+        return view('transaksi.edit',compact('transaksi'));
+
     }
 
     /**
@@ -78,7 +75,9 @@ class TransaksiController extends Controller
      */
     public function update(UpdatetransaksiRequest $request, transaksi $transaksi)
     {
-        //
+        $transaksi->update($request->all());
+
+         return redirect()->route('transaksi.index');
     }
 
     /**
@@ -89,6 +88,9 @@ class TransaksiController extends Controller
      */
     public function destroy(transaksi $transaksi)
     {
-        //
+        $transaksi->delete();
+
+        return redirect()->route('transaksi.index')
+                        ->with('success','Transaksi deleted successfully');
     }
 }

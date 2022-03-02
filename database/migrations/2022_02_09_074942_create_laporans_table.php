@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tajukLaporan');
             $table->string('detailLaporan');
             $table->string('jenisLaporan');
-            $table->date('tarikh');
+            $table->string('tarikh');
             $table->timestamps();
         });
     }

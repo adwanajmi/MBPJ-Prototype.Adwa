@@ -30,10 +30,11 @@ class UpdatepembayaranRequest extends FormRequest
                 'string',
                 'required',
             ],
-            // 'tarikhPembayaran' => [
-            //     // 'date_format:' . config('panel.date_format'),
-            //     'nullable',
-            // ],
+
+            'tarikhPembayaran' => [
+                'string',
+                'required',
+            ],
             'kaedahPembayaran' => [
                 'string',
                 'required',

@@ -13,7 +13,7 @@ class StorepenyelenggaraanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StorepenyelenggaraanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'jumlahBayaran' => [
+                'string',
+                'required',
+            ],
+
+            'bakiBayaran' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

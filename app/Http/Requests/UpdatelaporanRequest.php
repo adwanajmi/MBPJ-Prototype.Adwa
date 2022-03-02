@@ -13,7 +13,7 @@ class UpdatelaporanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class UpdatelaporanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'tajukLaporan' => [
+                'string',
+                'required',
+            ],
+
+            'detailLaporan' => [
+                'string',
+                'required',
+            ],
+            'jenisLaporan' => [
+                'string',
+                'required',
+            ],
+
+            'tarikh' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

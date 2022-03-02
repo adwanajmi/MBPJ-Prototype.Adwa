@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('namaPembayar');
             $table->string('kaedahBayaran');
             $table->string('accountNo');
-            $table->float('totalKutipan');
+            $table->string('totalKutipan');
             $table->timestamps();
         });
     }

@@ -1,57 +1,63 @@
 @extends('base')
 @section('content')
 
-<form method="POST" action="{{ route('pembayaran.update', [$pembayaran->id]) }}" enctype="multipart/form-data">
-    @method('PUT')
-    @csrf
-    <div class="mb-3">
-      <label class="form-label" for="basic-form-name">Name</label>
-      <input class="form-control" id="basic-form-name" type="text" placeholder="Name" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="basic-form-email">Email address</label>
-      <input class="form-control" id="basic-form-email" type="email" placeholder="name@example.com" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="basic-form-password">Password</label>
-      <input class="form-control" id="basic-form-password" type="password" placeholder="Password" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="basic-form-dob">Date of Birth</label>
-      <input class="form-control" id="basic-form-dob" type="date" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="basic-form-gender">Gender</label>
-      <select class="form-select" id="basic-form-gender" aria-label="Default select example">
-        <option selected="selected">Select your gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <div class="form-check">
-        <input class="form-check-input" id="flexRadioDefault1" type="radio" name="flexRadioDefault" />
-        <label class="form-check-label mb-0" for="flexRadioDefault1">Personal Account</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" id="flexRadioDefault2" type="radio" name="flexRadioDefault" checked="checked" />
-        <label class="form-check-label mb-0" for="flexRadioDefault2">Business Account</label>
-      </div>
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Upload Image</label>
-      <input class="form-control" type="file" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="basic-form-textarea">Description</label>
-      <textarea class="form-control" id="basic-form-textarea" rows="3" placeholder="Description"></textarea>
-    </div>
-    <div class="mb-3 form-check">
-      <input class="form-check-input" id="basic-form-checkbox" type="checkbox" />
-      <label class="form-check-label" for="basic-form-checkbox">Remember me</label>
-    </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </form>
+<div class="card mb-3">
+    <div class="card-header">
+      <div class="row flex-between-end">
+        <div class="col-auto flex-lg-grow-1 flex-lg-basis-0 align-self-center">
+          <h5 class="mb-0" data-anchor="data-anchor">Edit Pembayaran</h5>
+        </div>
+        <div class="col-auto ms-auto">
 
-  @endsection
+        </div>
+      </div>
+    </div>
+    <div class="card-body bg-light">
+      <div class="tab-content">
+        <div class="tab-pane preview-tab-pane active" role="tabpanel" aria-labelledby="tab-dom-bb654daf-be1a-40fe-b687-3e45244388c2" id="dom-bb654daf-be1a-40fe-b687-3e45244388c2">
+            <form action="/pembayaran/{{ $pembayaran->id }}" method="POST">
+                @csrf
+                @method('PUT')
+
+
+                <div class="mb-3">
+                      <label class="form-label" for="namaPembayar">Nama Pembayar</label>
+                      <input class="form-control" name="namaPembayar" type="namaPembayar" value="{{ $pembayaran->namaPembayar }}" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="tarikhPembayaran">Tarikh</label>
+                    <input class="form-control" name="tarikhPembayaran" type="tarikhPembayaran" placeholder="tarikhPembayaran" value="{{ $pembayaran->tarikhPembayaran }}"/>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="kaedahPembayaran">Kaedah Bayaran</label>
+                    <select class="form-select" name="kaedahPembayaran" type="kaedahPembayaran">
+                      <option selected="selected">{{ $pembayaran->kaedahPembayaran }}</option>
+                      <option value="Tunai">Tunai</option>
+                      <option value="Cek">Cek</option>
+                      <option value="Kad Kredit">Kad Kredit</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="totalpembayaran">Jumlah pembayaran (RM)</label>
+                    <input class="form-control" name="totalpembayaran" type="totalpembayaran" placeholder="totalpembayaran" value="{{ $pembayaran->totalPembayaran }}"/>
+                </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@endsection

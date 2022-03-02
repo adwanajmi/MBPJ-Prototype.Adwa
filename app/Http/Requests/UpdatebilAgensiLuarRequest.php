@@ -13,7 +13,7 @@ class UpdatebilAgensiLuarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class UpdatebilAgensiLuarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'tajuk' => [
+                'string',
+                'required',
+            ],
+
+            'jenisBilMajlis' => [
+                'string',
+                'required',
+            ],
+            'tarikh' => [
+                'string',
+                'required',
+            ],
+
+            'totalBayaran' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('jumlahBayaran');
+            $table->string('jumlahBayaran');
             $table->string('jenisLaporan');
-            $table->string('printReport');
-            $table->foreignId('pembayaran_id');
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('penyelenggaraans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->float('jumlahBayaran');
-            $table->float('bakiBayaran');
+            $table->string('jumlahBayaran');
+            $table->string('bakiBayaran');
             $table->timestamps();
         });
     }

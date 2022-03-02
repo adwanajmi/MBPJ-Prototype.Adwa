@@ -15,7 +15,9 @@ class BilMajlisController extends Controller
      */
     public function index()
     {
-        //
+        $bilMajlis = BilMajlis::all();
+        return view('bilMajlis.index', compact('bilMajlis'));
+
     }
 
     /**
@@ -25,7 +27,8 @@ class BilMajlisController extends Controller
      */
     public function create()
     {
-        //
+        return view('bilMajlis.create');
+
     }
 
     /**
@@ -36,7 +39,8 @@ class BilMajlisController extends Controller
      */
     public function store(StorebilMajlisRequest $request)
     {
-        //
+        $bilMajlis = bilMajlis::create($request->all());
+        return redirect()->route('bilMajlis.index');
     }
 
     /**
@@ -47,7 +51,8 @@ class BilMajlisController extends Controller
      */
     public function show(bilMajlis $bilMajlis)
     {
-        //
+        return view('bilMajlis.show', compact('bilMajlis'));
+
     }
 
     /**
@@ -58,7 +63,8 @@ class BilMajlisController extends Controller
      */
     public function edit(bilMajlis $bilMajlis)
     {
-        //
+        return view('bilMajlis.edit',compact('bilMajlis'));
+
     }
 
     /**
@@ -70,7 +76,8 @@ class BilMajlisController extends Controller
      */
     public function update(UpdatebilMajlisRequest $request, bilMajlis $bilMajlis)
     {
-        //
+        $bilMajlis->update($request->all());
+        return redirect()->route('bilMajlis.index');
     }
 
     /**
@@ -81,6 +88,10 @@ class BilMajlisController extends Controller
      */
     public function destroy(bilMajlis $bilMajlis)
     {
-        //
+        $bilMajlis->delete();
+
+        return redirect()->route('bilMajlis.index')
+                        ->with('success','Bil Majlis deleted successfully');
+
     }
 }
