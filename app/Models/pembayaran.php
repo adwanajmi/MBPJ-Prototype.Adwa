@@ -12,21 +12,13 @@ class pembayaran extends Model
 
     public $table = 'pembayarans';
 
+
     protected $fillable = [
-        'namaPembayar',
-        'tarikhPembayaran',
-        'kaedahPembayaran',
-        'totalPembayaran',
-    ];
 
-    protected $dates = [
-        'tarikhPembayaran',
-        'created_at',
-        'updated_at',
-    ];
+         'namaPembayar',
+         'tarikhPembayaran',
+         'kaedahPembayaran',
+         'totalPembayaran',
 
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
-    }
+    ];
 }

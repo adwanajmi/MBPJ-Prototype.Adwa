@@ -15,10 +15,9 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $laporan = laporan::all();
-        return view('laporan.index', [
-            'laporan'=>$laporan,
-        ]);
+        $laporan = Laporan::all();
+        return view('laporan.index', compact('laporan'));
+
     }
 
     /**
@@ -39,14 +38,8 @@ class LaporanController extends Controller
      */
     public function store(StorelaporanRequest $request)
     {
-        $laporan = new laporan();
-        $laporan-> tajukLaporan = $laporan->tajukLaporan;
-        $laporan-> detailLaporan = $laporan->detailLaporan;
-        $laporan-> jenisLaporan = $laporan->jenisLaporan;
-        $laporan-> tarikh = $laporan->tarikh;
-
-        $laporan-> save();
-        return redirect('/laporan');
+        $laporan = laporan::create($request->all());
+        return redirect()->route('laporan.index');
     }
 
     /**
@@ -57,7 +50,8 @@ class LaporanController extends Controller
      */
     public function show(laporan $laporan)
     {
-        //
+        return view('laporan.show', compact('laporan'));
+
     }
 
     /**
@@ -68,7 +62,8 @@ class LaporanController extends Controller
      */
     public function edit(laporan $laporan)
     {
-        //
+        return view('laporan.edit',compact('laporan'));
+
     }
 
     /**
@@ -80,7 +75,8 @@ class LaporanController extends Controller
      */
     public function update(UpdatelaporanRequest $request, laporan $laporan)
     {
-        //
+        $laporan->update($request->all());
+        return redirect()->route('laporan.index');
     }
 
     /**
@@ -91,6 +87,10 @@ class LaporanController extends Controller
      */
     public function destroy(laporan $laporan)
     {
-        //
+        $laporan->delete();
+
+        return redirect()->route('laporan.index')
+        ->with('success','laporan deleted successfully');
+
     }
 }

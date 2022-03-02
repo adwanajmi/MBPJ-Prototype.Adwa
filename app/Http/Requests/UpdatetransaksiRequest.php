@@ -13,7 +13,7 @@ class UpdatetransaksiRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UpdatetransaksiRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'jumlahBayaran' => [
+                'string',
+                'required',
+            ],
+
+            'jenisLaporan' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

@@ -13,7 +13,7 @@ class UpdatekutipanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,30 @@ class UpdatekutipanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'pembayaran_id' => [
+                'string',
+                'required',
+            ],
+
+            'namaPembayar' => [
+                'string',
+                'required',
+            ],
+
+            'kaedahBayaran' => [
+                'string',
+                'required',
+            ],
+
+            'accountNo' => [
+                'string',
+                'required',
+            ],
+
+            'totalKutipan' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

@@ -16,9 +16,7 @@ class KutipanController extends Controller
     public function index()
     {
         $kutipan = kutipan::all();
-        return view('kutipan.index', [
-            'kutipan'=>$kutipan,
-        ]);
+        return view('kutipan.index', compact('kutipan'));
     }
 
     /**
@@ -39,15 +37,8 @@ class KutipanController extends Controller
      */
     public function store(StorekutipanRequest $request)
     {
-        $kutipan = new kutipan();
-        $kutipan-> pembayaran_id = $request->pembayaran_id;
-        $kutipan-> namaPembayar = $request->namaPembayar;
-        $kutipan-> kaedahPembayaran = $request->kaedahPembayaran;
-        $kutipan-> accountNo = $request->accountNo;
-        $kutipan-> totalKutipan = $request->totalKutipan;
-        $kutipan-> save();
-
-        return redirect('kutipan');
+        $kutipan = kutipan::create($request->all());
+        return redirect()->route('kutipan.index');
     }
 
     /**
@@ -58,7 +49,7 @@ class KutipanController extends Controller
      */
     public function show(kutipan $kutipan)
     {
-        //
+        return view('kutipan.show', compact('kutipan'));
     }
 
     /**
@@ -69,9 +60,7 @@ class KutipanController extends Controller
      */
     public function edit(kutipan $kutipan)
     {
-        return view('kutipan.edit',[
-            'kutipan'=>$kutipan
-        ]);
+        return view('kutipan.edit',compact('kutipan'));
     }
 
 
@@ -84,15 +73,9 @@ class KutipanController extends Controller
      */
     public function update(UpdatekutipanRequest $request, kutipan $kutipan)
     {
-        
-        $kutipan-> pembayaran_id = $request->pembayaran_id;
-        $kutipan-> namaPembayar = $request->namaPembayar;
-        $kutipan-> kaedahPembayaran = $request->kaedahPembayaran;
-        $kutipan-> accountNo = $request->accountNo;
-        $kutipan-> totalKutipan = $request->totalKutipan;
-        $kutipan-> save();
 
-        return redirect('kutipan');
+        $kutipan->update($request->all());
+        return redirect()->route('kutipan.index');
     }
 
     /**
@@ -103,6 +86,9 @@ class KutipanController extends Controller
      */
     public function destroy(kutipan $kutipan)
     {
-        //
+        $kutipan->delete();
+
+        return redirect()->route('kutipan.index')
+                        ->with('success','Kutipan deleted successfully');
     }
 }

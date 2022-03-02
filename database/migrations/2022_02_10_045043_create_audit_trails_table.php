@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('audit_trails', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('activity');
-            $table->date('date');
+            $table->string('date');
             $table->string('user');
             $table->timestamps();
         });

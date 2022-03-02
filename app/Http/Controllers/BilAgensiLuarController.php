@@ -15,7 +15,9 @@ class BilAgensiLuarController extends Controller
      */
     public function index()
     {
-        //
+        $bilAgensiLuar = BilAgensiLuar::all();
+        return view('bilAgensiLuar.index', compact('bilAgensiLuar'));
+
     }
 
     /**
@@ -25,7 +27,8 @@ class BilAgensiLuarController extends Controller
      */
     public function create()
     {
-        //
+        return view('bilAgensiLuar.create');
+
     }
 
     /**
@@ -36,7 +39,8 @@ class BilAgensiLuarController extends Controller
      */
     public function store(StorebilAgensiLuarRequest $request)
     {
-        //
+        $bilAgensiLuar = bilAgensiLuar::create($request->all());
+        return redirect()->route('bilAgensiLuar.index');
     }
 
     /**
@@ -47,7 +51,8 @@ class BilAgensiLuarController extends Controller
      */
     public function show(bilAgensiLuar $bilAgensiLuar)
     {
-        //
+        return view('bilAgensiLuar.show', compact('bilAgensiLuar'));
+
     }
 
     /**
@@ -58,7 +63,8 @@ class BilAgensiLuarController extends Controller
      */
     public function edit(bilAgensiLuar $bilAgensiLuar)
     {
-        //
+        return view('bilAgensiLuar.edit',compact('bilAgensiLuar'));
+
     }
 
     /**
@@ -70,7 +76,8 @@ class BilAgensiLuarController extends Controller
      */
     public function update(UpdatebilAgensiLuarRequest $request, bilAgensiLuar $bilAgensiLuar)
     {
-        //
+        $bilAgensiLuar->update($request->all());
+        return redirect()->route('bilAgensiLuar.index');
     }
 
     /**
@@ -81,6 +88,10 @@ class BilAgensiLuarController extends Controller
      */
     public function destroy(bilAgensiLuar $bilAgensiLuar)
     {
-        //
+        $bilAgensiLuar->delete();
+
+        return redirect()->route('bilAgensiLuar.index')
+                        ->with('success','bilAgensiLuar deleted successfully');
+
     }
 }

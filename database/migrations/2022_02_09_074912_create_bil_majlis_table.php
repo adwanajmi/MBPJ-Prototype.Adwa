@@ -17,8 +17,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('tajuk');
             $table->string('jenisBilMajlis');
-            $table->date('tarikh');
-            $table->float('totalBayaran');
+            $table->string('tarikh');
+            $table->string('totalBayaran');
             $table->timestamps();
 
         });

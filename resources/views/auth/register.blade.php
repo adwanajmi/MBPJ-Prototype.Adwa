@@ -79,14 +79,12 @@
 
 
                 <x-slot name="logo">
-                    <a href="/">
-                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                    </a>
+
 
                     <div class="card-header bg-circle-shape bg-shape text-center p-2">
                         <a class="font-sans-serif fw-bolder fs-4 z-index-1 position-relative link-light light" href="/">MBPJ - Sistem Kutipan</a>
                         </div>
-                        
+
                 </x-slot>
 
                 <!-- Validation Errors -->

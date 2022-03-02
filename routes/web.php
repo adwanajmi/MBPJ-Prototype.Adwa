@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\AuditTrailController;
+use App\Http\Controllers\BilAgensiLuarController;
+use App\Http\Controllers\BilMajlisController;
 use App\Http\Controllers\KutipanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PenyelenggaraanController;
 use App\Http\Controllers\PenyeliaController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +25,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
 Route::get('/dashboard', function () {
-    return view('base');
+    return view('/dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 //kutipan
 Route::resource('/kutipan',KutipanController::class);
+
+//transaksi
+Route::resource('/transaksi', TransaksiController::class);
+
+//bilMajlis
+Route::resource('/bilMajlis', BilMajlisController::class);
+
+//bilAgensiLuar
+Route::resource('/bilAgensiLuar', BilAgensiLuarController::class);
+
+//
 
 
 //audit
@@ -40,12 +54,14 @@ Route::resource('/pembayaran',PembayaranController::class);
 Route::resource('/penyelia', PenyeliaController::class);
 
 //penyelenggeraan
-Route::resource('/penyelenggaran', PenyelenggaraanController::class);
+Route::resource('/penyelenggaraan', PenyelenggaraanController::class);
 
 //laporan
 Route::resource('/laporan', LaporanController::class);
 
 //user
+Route::resource('/user', UserController::class);
+
 
 Route::get('/user', [UserController::class, 'index']);
 require __DIR__.'/auth.php';

@@ -58,6 +58,9 @@
 
   <body>
 
+    {{-- @if (auth()-> user()->role =="admin"|| auth()-> user()->role =="admin") --}}
+
+    {{-- @if (auth()-> user()->role =="Admin") --}}
 
 
 
@@ -96,38 +99,58 @@
           <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
             <div class="navbar-vertical-content scrollbar">
               <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+
                 <li class="nav-item">
-                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
+                <!-- parent pages--><a class="nav-link dropdown-indicator" href="/dashboard" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-pie"></span></span><span class="nav-link-text ps-1">Dashboard</span>
                     </div>
                   </a>
-                  <ul class="nav collapse show" id="dashboard">
-                    <a class="nav-link dropdown-indicator collapsed" href="/audit" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="forms">
-                        <div class="d-flex align-items-center"><span class="nav-link-icon"><svg class="svg-inline--fa fa-file-alt fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg><!-- <span class="fas fa-file-alt"></span> Font Awesome fontawesome.com --></span><span class="nav-link-text ps-1">Audit Trail</span>
-                        </div>
-                      </a>
+
+
+
+
+                @if (auth()-> user()->role =="Penyelia" || auth()-> user()->role =="Admin")
+
+                <a class="nav-link" href="/audit" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><svg class="svg-inline--fa fa-comments fa-w-18"  ></svg></span><span class="nav-link-text ps-1">Audit Trail</span>
+                    </div>
+                  </a>
+
                 <!-- parent pages--><a class="nav-link dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Penyelia</span>
                     </div>
                     </a>
 
                     <ul class="nav collapse false" id="user">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('pembayaran.index') }}">
+                        <li class="nav-item"><a class="nav-link" href="/kutipan">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Manage Kutipan</span>
                             </div>
-
 
                           </a>
                           <!-- more inner pages-->
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="/penyelia">
+                        <li class="nav-item"><a class="nav-link" href="/transaksi">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Transaksi Pembayaran</span>
                             </div>
                           </a>
                           <!-- more inner pages-->
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
+                        <li class="nav-item"><a class="nav-link" href="/laporan">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Laporan</span>
+                            </div>
+                          </a>
+                          <!-- more inner pages-->
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/bilMajlis">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bil Majlis</span>
+                            </div>
+                          </a>
+                          <!-- more inner pages-->
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="/bilAgensiLuar">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Bil Agensi Luar</span>
                             </div>
                           </a>
                           <!-- more inner pages-->
@@ -135,56 +158,40 @@
 
                     </ul>
 
+                @endif
+
+                @if (auth()-> user()->role =="Pelanggan")
+
+
                 <!-- parent pages--><a class="nav-link dropdown-indicator" href="#user" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="user">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user"></span></span><span class="nav-link-text ps-1">Pelanggan</span>
                     </div>
                     </a>
 
                     <ul class="nav collapse false" id="user">
-                        <li class="nav-item"><a class="nav-link" href="/pembayaran">
+                        <li class="nav-item"><a class="nav-link" href="/pembayaran/create">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Pembayaran</span>
                             </div>
                           </a>
                           <!-- more inner pages-->
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="pages/user/settings.html">
+                        <li class="nav-item"><a class="nav-link" href="/penyelenggaraan">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Penyelenggaraan</span>
                             </div>
                           </a>
                           <!-- more inner pages-->
                         </li>
 
-                      </ul>
-                  </a>
-                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="email">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span class="nav-link-text ps-1">Bil Majlis</span>
-                    </div>
-                </a>
-                <!-- parent pages--><a class="nav-link dropdown-indicator" href="#email" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="email">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-envelope-open"></span></span><span class="nav-link-text ps-1">Bil Agensi Luar</span>
-                    </div>
-                </a>
+                    </ul>
 
-                  <ul class="nav collapse false" id="pricing">
-                    <li class="nav-item"><a class="nav-link" href="pages/pricing/pricing-default.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Transaksi Pembayaran</span>
-                        </div>
-                      </a>
-                      <!-- more inner pages-->
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="pages/pricing/pricing-alt.html">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Kutipan</span>
-                        </div>
-                      </a>
-                      <!-- more inner pages-->
-                    </li>
-                  </ul>
+                @endif
 
 
 
             </div>
           </div>
         </nav>
+
         <div class="content">
           <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand">
 
@@ -206,19 +213,32 @@
                     </div>
                 @endif
 
-                @can('isAdmin')
-                      <div class="btn btn-success btn-lg">
-                        Admin Access
-                      </div>
-                  @elsecan('isPenyelia')
-                      <div class="btn btn-primary btn-lg">
-                        Penyelia Access
-                      </div>
-                @else
-                    <div class="btn btn-info btn-lg">
-                      You are Pelanggan
-                    </div>
-                @endcan
+
+                @if(Auth::check() && Auth::user()->role == "Admin")
+
+                <div class="btn btn-success btn-lg">
+                    Admin Access
+                </div>
+
+                @endif
+
+                @if(Auth::check() && Auth::user()->role == "Penyelia")
+
+                <div class="btn btn-success btn-lg">
+                    Penyelia Access
+                </div>
+
+                @endif
+
+                @if(Auth::check() && Auth::user()->role == "Pelanggan")
+
+                <div class="btn btn-success btn-lg">
+                    Pelanggan
+                </div>
+
+                @endif
+
+
 
             </div>
 
@@ -263,701 +283,591 @@
               </li>
             </ul>
           </nav>
-          <div class="row g-0">
-            <div class="col-md-6 col-xxl-3 mb-3 pe-md-2">
-              <div class="card h-md-100 ecommerce-card-min-width">
-                <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2 d-flex align-items-center">Weekly Sales<span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculated according to last week's sales"><span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span></h6>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-end">
-                  <div class="row">
-                    <div class="col">
-                      <p class="font-sans-serif lh-1 mb-1 fs-4">$47K</p><span class="badge badge-soft-success rounded-pill fs--2">+3.5%</span>
-                    </div>
-                    <div class="col-auto ps-0">
-                      <div class="echart-bar-weekly-sales h-100"></div>
-                    </div>
+
+            @if (auth()-> user()->role =="Pelanggan")
+          <div class="row mb-3">
+            <div class="col">
+              <div class="card bg-100 shadow-none border">
+                <div class="row gx-0 flex-between-center">
+                  <div class="col-sm-auto d-flex align-items-center"><img class="ms-n2" src="../assets/img/illustrations/crm-bar-chart.png" alt="" width="90" />
+                    <div>
+                      <h6 class="text-primary fs--1 mb-0">Welcome  </h6>
+                      <h4 class="text-primary fw-bold mb-0">{{ auth()->user()->name }} to  <span class="text-info fw-medium">MBPJ - Sistem Kutipan</span></h4>
+                    </div><img class="ms-n4 d-md-none d-lg-block" src="../assets/img/illustrations/crm-line-chart.png" alt="" width="150" />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-xxl-3 mb-3 ps-md-2 pe-xxl-2">
-              <div class="card h-md-100">
-                <div class="card-header pb-0">
-                  <h6 class="mb-0 mt-2">Total Order</h6>
-                </div>
-                <div class="card-body d-flex flex-column justify-content-end">
-                  <div class="row justify-content-between">
-                    <div class="col-auto align-self-end">
-                      <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1">58.4K</div><span class="badge rounded-pill fs--2 bg-200 text-primary"><span class="fas fa-caret-up me-1"></span>13.6%</span>
-                    </div>
-                    <div class="col-auto ps-0 mt-n4">
-                      <div class="echart-default-total-order" data-echarts='{"tooltip":{"trigger":"axis","formatter":"{b0} : {c0}"},"xAxis":{"data":["Week 4","Week 5","week 6","week 7"]},"series":[{"type":"line","data":[20,40,100,120],"smooth":true,"lineStyle":{"width":3}}],"grid":{"bottom":"2%","top":"2%","right":"10px","left":"10px"}}' data-echart-responsive="true"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xxl-3 mb-3 pe-md-2 ps-xxl-2">
-              <div class="card h-md-100">
+          </div>
+
+            <div class="card mb-3"><img class="card-img-top" src="../../assets/img/MBPJ-1.jpeg" alt="">
                 <div class="card-body">
-                  <div class="row h-100 justify-content-between g-0">
-                    <div class="col-5 col-sm-6 col-xxl pe-2">
-                      <h6 class="mt-1">Market Share</h6>
-                      <div class="fs--2 mt-3">
-                        <div class="d-flex flex-between-center mb-1">
-                          <div class="d-flex align-items-center"><span class="dot bg-primary"></span><span class="fw-semi-bold">samsung</span></div>
-                          <div class="d-xxl-none">33%</div>
-                        </div>
-                        <div class="d-flex flex-between-center mb-1">
-                          <div class="d-flex align-items-center"><span class="dot bg-info"></span><span class="fw-semi-bold">Huawei</span></div>
-                          <div class="d-xxl-none">29%</div>
-                        </div>
-                        <div class="d-flex flex-between-center mb-1">
-                          <div class="d-flex align-items-center"><span class="dot bg-300"></span><span class="fw-semi-bold">Huawei</span></div>
-                          <div class="d-xxl-none">20%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto position-relative">
-                      <div class="echart-market-share"></div>
-                      <div class="position-absolute top-50 start-50 translate-middle text-dark fs-2">26M</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xxl-3 mb-3 ps-md-2">
-              <div class="card h-md-100">
-                <div class="card-header d-flex flex-between-center pb-0">
-                  <h6 class="mb-0">Weather</h6>
-                  <div class="dropdown font-sans-serif btn-reveal-trigger">
-                    <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-weather-update" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-weather-update"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                      <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body pt-2">
-                  <div class="row g-0 h-100 align-items-center">
+                  <div class="row justify-content-between align-items-center">
                     <div class="col">
-                      <div class="d-flex align-items-center"><img class="me-3" src="assets/img/icons/weather-icon.png" alt="" height="60" />
-                        <div>
-                          <h6 class="mb-2">New York City</h6>
-                          <div class="fs--2 fw-semi-bold">
-                            <div class="text-warning">Sunny</div>Precipitation: 50%
-                          </div>
+                      <div class="d-flex">
+                        <div class="calendar me-2"><span class="calendar-month">Dec</span><span class="calendar-day">31 </span></div>
+                        <div class="flex-1 fs--1">
+                          <h5 class="fs-0">Promosi Diskaun 50% daripada MBPJ</h5>
+                          <p class="mb-0">by <a href="/dashboard">MBPJ</a></p><span class="fs-0 text-warning fw-semi-bold">RM49.99 – RM89.99</span>
                         </div>
                       </div>
                     </div>
-                    <div class="col-auto text-center ps-2">
-                      <div class="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1">31&deg;</div>
-                      <div class="fs--1 text-800">32&deg; / 25&deg;</div>
+                    <div class="col-md-auto mt-4 mt-md-0">
+                      <button class="btn btn-falcon-default btn-sm me-2" type="button"><svg class="svg-inline--fa fa-heart fa-w-16 text-danger me-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg><!-- <span class="fas fa-heart text-danger me-1"></span> Font Awesome fontawesome.com -->235</button>
+                      <button class="btn btn-falcon-default btn-sm me-2" type="button"><svg class="svg-inline--fa fa-share-alt fa-w-14 me-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="share-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M352 320c-22.608 0-43.387 7.819-59.79 20.895l-102.486-64.054a96.551 96.551 0 0 0 0-41.683l102.486-64.054C308.613 184.181 329.392 192 352 192c53.019 0 96-42.981 96-96S405.019 0 352 0s-96 42.981-96 96c0 7.158.79 14.13 2.276 20.841L155.79 180.895C139.387 167.819 118.608 160 96 160c-53.019 0-96 42.981-96 96s42.981 96 96 96c22.608 0 43.387-7.819 59.79-20.895l102.486 64.054A96.301 96.301 0 0 0 256 416c0 53.019 42.981 96 96 96s96-42.981 96-96-42.981-96-96-96z"></path></svg><!-- <span class="fas fa-share-alt me-1"></span> Font Awesome fontawesome.com -->Share</button>
+                      <button class="btn btn-falcon-primary btn-sm px-4 px-sm-5" type="button" href="/pembayaran/create">Bayar</button>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="row g-0">
-            <div class="col-lg-6 pe-lg-2 mb-3">
-              <div class="card h-lg-100 overflow-hidden">
-                <div class="card-header bg-light">
+
+            <div class="card">
+                <div class="card-body overflow-hidden p-lg-6">
                   <div class="row align-items-center">
-                    <div class="col">
-                      <h6 class="mb-0">Running Projects</h6>
-                    </div>
-                    <div class="col-auto text-center pe-card">
-                      <select class="form-select form-select-sm">
-                        <option>Working Time</option>
-                        <option>Estimated Time</option>
-                        <option>Billable Time</option>
-                      </select>
+                    <div class="col-lg-6"><img class="img-fluid" src="../assets/img/MBPJ-1.jpeg" alt=""></div>
+                    <div class="col-lg-6 ps-lg-4 my-5 text-center text-lg-start">
+                      <h3 class="text-primary">Edit me!</h3>
+                      <p class="lead">Create Something Beautiful.</p><a class="btn btn-falcon-primary" href="/pembayaran/create">Buat Pembayaran</a>
                     </div>
                   </div>
                 </div>
-                <div class="card-body p-0">
-                  <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
-                    <div class="col ps-card py-1 position-static">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl me-3">
-                          <div class="avatar-name rounded-circle bg-soft-primary text-dark"><span class="fs-0 text-primary">F</span></div>
-                        </div>
-                        <div class="flex-1">
-                          <h6 class="mb-0 d-flex align-items-center"><a class="text-800 stretched-link" href="#!">Falcon</a><span class="badge rounded-pill ms-2 bg-200 text-primary">38%</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col py-1">
-                      <div class="row flex-end-center g-0">
-                        <div class="col-auto pe-2">
-                          <div class="fs--1 fw-semi-bold">12:50:00</div>
-                        </div>
-                        <div class="col-5 pe-card ps-2">
-                          <div class="progress bg-200 me-2" style="height: 5px;">
-                            <div class="progress-bar rounded-pill" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
-                    <div class="col ps-card py-1 position-static">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl me-3">
-                          <div class="avatar-name rounded-circle bg-soft-success text-dark"><span class="fs-0 text-success">R</span></div>
-                        </div>
-                        <div class="flex-1">
-                          <h6 class="mb-0 d-flex align-items-center"><a class="text-800 stretched-link" href="#!">Reign</a><span class="badge rounded-pill ms-2 bg-200 text-primary">79%</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col py-1">
-                      <div class="row flex-end-center g-0">
-                        <div class="col-auto pe-2">
-                          <div class="fs--1 fw-semi-bold">25:20:00</div>
-                        </div>
-                        <div class="col-5 pe-card ps-2">
-                          <div class="progress bg-200 me-2" style="height: 5px;">
-                            <div class="progress-bar rounded-pill" role="progressbar" style="width: 79%" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
-                    <div class="col ps-card py-1 position-static">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl me-3">
-                          <div class="avatar-name rounded-circle bg-soft-info text-dark"><span class="fs-0 text-info">B</span></div>
-                        </div>
-                        <div class="flex-1">
-                          <h6 class="mb-0 d-flex align-items-center"><a class="text-800 stretched-link" href="#!">Boots4</a><span class="badge rounded-pill ms-2 bg-200 text-primary">90%</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col py-1">
-                      <div class="row flex-end-center g-0">
-                        <div class="col-auto pe-2">
-                          <div class="fs--1 fw-semi-bold">58:20:00</div>
-                        </div>
-                        <div class="col-5 pe-card ps-2">
-                          <div class="progress bg-200 me-2" style="height: 5px;">
-                            <div class="progress-bar rounded-pill" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
-                    <div class="col ps-card py-1 position-static">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl me-3">
-                          <div class="avatar-name rounded-circle bg-soft-warning text-dark"><span class="fs-0 text-warning">R</span></div>
-                        </div>
-                        <div class="flex-1">
-                          <h6 class="mb-0 d-flex align-items-center"><a class="text-800 stretched-link" href="#!">Raven</a><span class="badge rounded-pill ms-2 bg-200 text-primary">40%</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col py-1">
-                      <div class="row flex-end-center g-0">
-                        <div class="col-auto pe-2">
-                          <div class="fs--1 fw-semi-bold">21:20:00</div>
-                        </div>
-                        <div class="col-5 pe-card ps-2">
-                          <div class="progress bg-200 me-2" style="height: 5px;">
-                            <div class="progress-bar rounded-pill" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row g-0 align-items-center py-2 position-relative">
-                    <div class="col ps-card py-1 position-static">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-xl me-3">
-                          <div class="avatar-name rounded-circle bg-soft-danger text-dark"><span class="fs-0 text-danger">S</span></div>
-                        </div>
-                        <div class="flex-1">
-                          <h6 class="mb-0 d-flex align-items-center"><a class="text-800 stretched-link" href="#!">Slick</a><span class="badge rounded-pill ms-2 bg-200 text-primary">70%</span></h6>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col py-1">
-                      <div class="row flex-end-center g-0">
-                        <div class="col-auto pe-2">
-                          <div class="fs--1 fw-semi-bold">31:20:00</div>
-                        </div>
-                        <div class="col-5 pe-card ps-2">
-                          <div class="progress bg-200 me-2" style="height: 5px;">
-                            <div class="progress-bar rounded-pill" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer bg-light p-0"><a class="btn btn-sm btn-link d-block w-100 py-2" href="#!">Show all projects<span class="fas fa-chevron-right ms-1 fs--2"></span></a></div>
-              </div>
             </div>
-            <div class="col-lg-6 ps-lg-2 mb-3">
-              <div class="card h-lg-100">
+            @endif
+
+            @if (auth()-> user()->role =="Admin")
+            <div class="col-12">
+                <div class="card bg-transparent-50 overflow-hidden">
+                  <div class="card-header position-relative">
+                    <div class="bg-holder d-none d-md-block bg-card z-index-1" style="background-image:url(../assets/img/MBPJ-2.jpeg);background-size:100;background-position:right bottom;z-index:-1;">
+                    </div>
+                    <!--/.bg-holder-->
+
+                    <div class="position-relative z-index-2">
+                      <div>
+                        <h3 class="text-primary mb-1">Hello, {{ auth()->user()->name }}!</h3>
+                        <p>Here’s what happening today</p>
+                      </div>
+                      <div class="d-flex py-3">
+                        <div class="pe-3">
+                          <p class="text-600 fs--1 fw-medium">Today's visit </p>
+                          <h4 class="text-800 mb-0">14,209</h4>
+                        </div>
+                        <div class="ps-3">
+                          <p class="text-600 fs--1">Today’s Kutipan </p>
+                          <h4 class="text-800 mb-0">RM 21,349.29 </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-body p-0">
+                    <ul class="mb-0 list-unstyled">
+
+                      <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top border-x-0 border-top-0">
+                        <div class="row flex-between-center">
+                          <div class="col">
+                            <div class="d-flex">
+                              <svg class="svg-inline--fa fa-circle fa-w-16 mt-1 fs--2 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg><!-- <div class="fas fa-circle mt-1 fs--2 text-primary"></div> Font Awesome fontawesome.com -->
+                              <p class="fs--1 ps-2 mb-0"><strong>Audit Trail</strong> have activity that need to be see</p>
+                            </div>
+                          </div>
+                          <div class="col-auto d-flex align-items-center"><a class="alert-link fs--1 fw-medium" href="/audit">View Audit Trail<svg class="svg-inline--fa fa-chevron-right fa-w-10 ms-1 fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-chevron-right ms-1 fs--2"></i> Font Awesome fontawesome.com --></a></div>
+                        </div>
+                      </li>
+                      <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top  border-0">
+                        <div class="row flex-between-center">
+                          <div class="col">
+                            <div class="d-flex">
+                              <svg class="svg-inline--fa fa-circle fa-w-16 mt-1 fs--2 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg><!-- <div class="fas fa-circle mt-1 fs--2 text-primary"></div> Font Awesome fontawesome.com -->
+                              <p class="fs--1 ps-2 mb-0"><strong>Manage </strong>Pelanggan and Penyelia</p>
+                            </div>
+                          </div>
+                          <div class="col-auto d-flex align-items-center"><a class="alert-link fs--1 fw-medium" href="/user">Manage Now<svg class="svg-inline--fa fa-chevron-right fa-w-10 ms-1 fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-chevron-right ms-1 fs--2"></i> Font Awesome fontawesome.com --></a></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
                 <div class="card-header">
-                  <div class="row flex-between-center">
-                    <div class="col-auto">
-                      <h6 class="mb-0">Total Sales</h6>
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h5 class="mb-0">User Statistic</h5>
+                      </div>
+                </div>
+                <!-- Styles -->
+                <style>
+                #chartdiv {
+                width: 100%;
+                height: 500px;
+                }
+                </style>
+
+                <!-- Resources -->
+                <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+                <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+                <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+                <!-- Chart code -->
+                <script>
+                am5.ready(function() {
+
+                // Create root element
+                // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                var root = am5.Root.new("chartdiv");
+
+                // Set themes
+                // https://www.amcharts.com/docs/v5/concepts/themes/
+                root.setThemes([
+                am5themes_Animated.new(root)
+                ]);
+
+                var data = [{
+                name: "Monica",
+                steps: 45688,
+                pictureSettings: {
+                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
+                }
+                }, {
+                name: "Joey",
+                steps: 35781,
+                pictureSettings: {
+                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/joey.jpg"
+                }
+                }, {
+                name: "Ross",
+                steps: 25464,
+                pictureSettings: {
+                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/ross.jpg"
+                }
+                }, {
+                name: "Phoebe",
+                steps: 18788,
+                pictureSettings: {
+                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/phoebe.jpg"
+                }
+                }, {
+                name: "Rachel",
+                steps: 15465,
+                pictureSettings: {
+                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/rachel.jpg"
+                }
+                }, {
+                name: "Chandler",
+                steps: 11561,
+                pictureSettings: {
+                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/chandler.jpg"
+                }
+                }];
+
+                // Create chart
+                // https://www.amcharts.com/docs/v5/charts/xy-chart/
+                var chart = root.container.children.push(
+                am5xy.XYChart.new(root, {
+                    panX: false,
+                    panY: false,
+                    wheelX: "none",
+                    wheelY: "none",
+                    paddingBottom: 50,
+                    paddingTop: 40
+                })
+                );
+
+                // Create axes
+                // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+
+                var xRenderer = am5xy.AxisRendererX.new(root, {});
+                xRenderer.grid.template.set("visible", false);
+
+                var xAxis = chart.xAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                    paddingTop:40,
+                    categoryField: "name",
+                    renderer: xRenderer
+                })
+                );
+
+
+                var yRenderer = am5xy.AxisRendererY.new(root, {});
+                yRenderer.grid.template.set("strokeDasharray", [3]);
+
+                var yAxis = chart.yAxes.push(
+                am5xy.ValueAxis.new(root, {
+                    min: 0,
+                    renderer: yRenderer
+                })
+                );
+
+                // Add series
+                // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+                var series = chart.series.push(
+                am5xy.ColumnSeries.new(root, {
+                    name: "Income",
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    valueYField: "steps",
+                    categoryXField: "name",
+                    sequencedInterpolation: true,
+                    calculateAggregates: true,
+                    maskBullets: false,
+                    tooltip: am5.Tooltip.new(root, {
+                    dy: -30,
+                    pointerOrientation: "vertical",
+                    labelText: "{valueY}"
+                    })
+                })
+                );
+
+                series.columns.template.setAll({
+                strokeOpacity: 0,
+                cornerRadiusBR: 10,
+                cornerRadiusTR: 10,
+                cornerRadiusBL: 10,
+                cornerRadiusTL: 10,
+                maxWidth: 50,
+                fillOpacity: 0.8
+                });
+
+                var currentlyHovered;
+
+                series.columns.template.events.on("pointerover", function (e) {
+                handleHover(e.target.dataItem);
+                });
+
+                series.columns.template.events.on("pointerout", function (e) {
+                handleOut();
+                });
+
+                function handleHover(dataItem) {
+                if (dataItem && currentlyHovered != dataItem) {
+                    handleOut();
+                    currentlyHovered = dataItem;
+                    var bullet = dataItem.bullets[0];
+                    bullet.animate({
+                    key: "locationY",
+                    to: 1,
+                    duration: 600,
+                    easing: am5.ease.out(am5.ease.cubic)
+                    });
+                }
+                }
+
+                function handleOut() {
+                if (currentlyHovered) {
+                    var bullet = currentlyHovered.bullets[0];
+                    bullet.animate({
+                    key: "locationY",
+                    to: 0,
+                    duration: 600,
+                    easing: am5.ease.out(am5.ease.cubic)
+                    });
+                }
+                }
+
+                var circleTemplate = am5.Template.new({});
+
+                series.bullets.push(function (root, series, dataItem) {
+                var bulletContainer = am5.Container.new(root, {});
+                var circle = bulletContainer.children.push(
+                    am5.Circle.new(
+                    root,
+                    {
+                        radius: 34
+                    },
+                    circleTemplate
+                    )
+                );
+
+                var maskCircle = bulletContainer.children.push(
+                    am5.Circle.new(root, { radius: 27 })
+                );
+
+                // only containers can be masked, so we add image to another container
+                var imageContainer = bulletContainer.children.push(
+                    am5.Container.new(root, {
+                    mask: maskCircle
+                    })
+                );
+
+                var image = imageContainer.children.push(
+                    am5.Picture.new(root, {
+                    templateField: "pictureSettings",
+                    centerX: am5.p50,
+                    centerY: am5.p50,
+                    width: 60,
+                    height: 60
+                    })
+                );
+
+                return am5.Bullet.new(root, {
+                    locationY: 0,
+                    sprite: bulletContainer
+                });
+                });
+
+                // heatrule
+                series.set("heatRules", [
+                {
+                    dataField: "valueY",
+                    min: am5.color(0xe5dc36),
+                    max: am5.color(0x5faa46),
+                    target: series.columns.template,
+                    key: "fill"
+                },
+                {
+                    dataField: "valueY",
+                    min: am5.color(0xe5dc36),
+                    max: am5.color(0x5faa46),
+                    target: circleTemplate,
+                    key: "fill"
+                }
+                ]);
+
+                series.data.setAll(data);
+                xAxis.data.setAll(data);
+
+                var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+                cursor.lineX.set("visible", false);
+                cursor.lineY.set("visible", false);
+
+                cursor.events.on("cursormoved", function () {
+                var dataItem = series.get("tooltip").dataItem;
+                if (dataItem) {
+                    handleHover(dataItem);
+                } else {
+                    handleOut();
+                }
+                });
+
+                // Make stuff animate on load
+                // https://www.amcharts.com/docs/v5/concepts/animations/
+                series.appear();
+                chart.appear(1000, 100);
+
+                }); // end am5.ready()
+                </script>
+
+                <!-- HTML -->
+                <div id="chartdiv"></div>
+                MBPJ
+
+            </div>
+
+
+            @endif
+
+            @if (auth()-> user()->role =="Penyelia")
+            <div class="col-xxl-6 col-lg-12">
+                <div class="card h-100">
+                  <div class="bg-holder bg-card" style="background-image:url(../assets/img/icons/spot-illustrations/corner-3.png);">
+                  </div>
+                  <!--/.bg-holder-->
+
+                  <div class="card-header z-index-1">
+                    <h5 class="text-primary">Welcome {{ auth()->user()->name }} to MBPJ - Sistem Kutipan! </h5>
+                    <h6 class="text-600">Here are some quick links for you to start </h6>
+                  </div>
+                  <div class="card-body z-index-1">
+                    <div class="row g-2 h-100 align-items-end">
+                      <div class="col-sm-6 col-md-5">
+                        <div class="d-flex position-relative">
+                          <div class="icon-item icon-item-sm border rounded-3 shadow-none me-2"><svg class="svg-inline--fa fa-chess-rook fa-w-12 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chess-rook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M368 32h-56a16 16 0 0 0-16 16v48h-48V48a16 16 0 0 0-16-16h-80a16 16 0 0 0-16 16v48H88.1V48a16 16 0 0 0-16-16H16A16 16 0 0 0 0 48v176l64 32c0 48.33-1.54 95-13.21 160h282.42C321.54 351 320 303.72 320 256l64-32V48a16 16 0 0 0-16-16zM224 320h-64v-64a32 32 0 0 1 64 0zm144 128H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg><!-- <span class="fas fa-chess-rook text-primary"></span> Font Awesome fontawesome.com --></div>
+                          <div class="flex-1"><a class="stretched-link" href="/kutipan">
+                              <h6 class="text-800 mb-0">Kutipan</h6>
+                            </a>
+                            <p class="mb-0 fs--2 text-500">Manage Kutipan</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-5">
+                        <div class="d-flex position-relative">
+                          <div class="icon-item icon-item-sm border rounded-3 shadow-none me-2"><svg class="svg-inline--fa fa-crown fa-w-20 text-warning" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="crown" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M528 448H112c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h416c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm64-320c-26.5 0-48 21.5-48 48 0 7.1 1.6 13.7 4.4 19.8L476 239.2c-15.4 9.2-35.3 4-44.2-11.6L350.3 85C361 76.2 368 63 368 48c0-26.5-21.5-48-48-48s-48 21.5-48 48c0 15 7 28.2 17.7 37l-81.5 142.6c-8.9 15.6-28.9 20.8-44.2 11.6l-72.3-43.4c2.7-6 4.4-12.7 4.4-19.8 0-26.5-21.5-48-48-48S0 149.5 0 176s21.5 48 48 48c2.6 0 5.2-.4 7.7-.8L128 416h384l72.3-192.8c2.5.4 5.1.8 7.7.8 26.5 0 48-21.5 48-48s-21.5-48-48-48z"></path></svg><!-- <span class="fas fa-crown text-warning"></span> Font Awesome fontawesome.com --></div>
+                          <div class="flex-1"><a class="stretched-link" href="/laporan">
+                              <h6 class="text-800 mb-0">Laporan</h6>
+                            </a>
+                            <p class="mb-0 fs--2 text-500">Access Laporan </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-5">
+                        <div class="d-flex position-relative">
+                          <div class="icon-item icon-item-sm border rounded-3 shadow-none me-2"><svg class="svg-inline--fa fa-video fa-w-18 text-success" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"></path></svg><!-- <span class="fas fa-video text-success"></span> Font Awesome fontawesome.com --></div>
+                          <div class="flex-1"><a class="stretched-link" href="/transaksi">
+                              <h6 class="text-800 mb-0">Transasksi Pembayaran</h6>
+                            </a>
+                            <p class="mb-0 fs--2 text-500">View Transaksi Pembayaran</p>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
-                    <div class="col-auto d-flex">
-                      <select class="form-select form-select-sm select-month me-2">
-                        <option value="0">January</option>
-                        <option value="1">February</option>
-                        <option value="2">March</option>
-                        <option value="3">April</option>
-                        <option value="4">May</option>
-                        <option value="5">Jun</option>
-                        <option value="6">July</option>
-                        <option value="7">August</option>
-                        <option value="8">September</option>
-                        <option value="9">October</option>
-                        <option value="10">November</option>
-                        <option value="11">December</option>
-                      </select>
-                      <div class="dropdown font-sans-serif btn-reveal-trigger">
-                        <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-total-sales" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                        <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-total-sales"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                          <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-xxl-8">
+                  <div class="card overflow-hidden h-100">
+                    <div class="card-body p-0 management-calendar">
+                      <div class="row g-3">
+                        <div class="col-md-7">
+                          <div class="p-card">
+                            <div class="d-flex justify-content-between">
+                              <div class="order-md-1">
+                                <button class="btn btn-sm border me-1 shadow-sm" type="button" data-event="prev" data-bs-toggle="tooltip" title="Previous"><span class="fas fa-chevron-left"></span></button>
+                                <button class="btn btn-sm text-secondary border px-sm-4 shadow-sm" type="button" data-event="today">Today</button>
+                                <button class="btn btn-sm border ms-1 shadow-sm" type="button" data-event="next" data-bs-toggle="tooltip" title="Next"><span class="fas fa-chevron-right"></span></button>
+                              </div>
+                              <button class="btn btn-sm text-primary border order-md-0" type="button" data-bs-toggle="modal" data-bs-target="#addEventModal"> <span class="fas fa-plus me-2"></span>New Schedule</button>
+                            </div>
+                          </div>
+                          <div class="calendar-outline px-3" id="managementAppCalendar" data-calendar-option='{"title":"management-calendar-title","day":"management-calendar-day","events":"management-calendar-events"}'></div>
+                        </div>
+                        <div class="col-md-5 bg-light pt-3">
+                          <div class="px-3">
+                            <h4 class="mb-0 fs-0 fs-sm-1 fs-lg-2" id="management-calendar-title"></h4>
+                            <p class="text-500 mb-0" id="management-calendar-day"></p>
+                            <ul class="list-unstyled mt-3 scrollbar management-calendar-events" id="management-calendar-events"></ul>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="card-body h-100 pe-0">
-                  <div class="echart-line-total-sales h-100" data-echart-responsive="true"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-0">
-            <div class="col-lg-6 col-xl-7 col-xxl-8 mb-3 pe-lg-2 mb-3">
-              <div class="card h-lg-100">
-                <div class="card-body d-flex align-items-center">
-                  <div class="w-100">
-                    <h6 class="mb-3 text-800">Using Storage <strong class="text-dark">1775.06 MB </strong>of 2 GB</h6>
-                    <div class="progress mb-3 rounded-3" style="height: 10px;">
-                      <div class="progress-bar bg-progress-gradient border-end border-white border-2" role="progressbar" style="width: 43.72%" aria-valuenow="43.72" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-info border-end border-white border-2" role="progressbar" style="width: 18.76%" aria-valuenow="18.76" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-success border-end border-white border-2" role="progressbar" style="width: 9.38%" aria-valuenow="9.38" aria-valuemin="0" aria-valuemax="100"></div>
-                      <div class="progress-bar bg-200" role="progressbar" style="width: 28.14%" aria-valuenow="28.14" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="col-xxl-4">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h6 class="mb-0">To Do List</h6>
                     </div>
-                    <div class="row fs--1 fw-semi-bold text-500 g-0">
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-primary"></span><span>Regular</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(895MB)</span></div>
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-info"></span><span>System</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(379MB)</span></div>
-                      <div class="col-auto d-flex align-items-center pe-3"><span class="dot bg-success"></span><span>Shared</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(192MB)</span></div>
-                      <div class="col-auto d-flex align-items-center"><span class="dot bg-200"></span><span>Free</span><span class="d-none d-md-inline-block d-lg-none d-xxl-inline-block">(576MB)</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-xl-5 col-xxl-4 mb-3 ps-lg-2">
-              <div class="card h-lg-100">
-                <div class="bg-holder bg-card" style="background-image:url(assets/img/icons/spot-illustrations/corner-1.png);">
-                </div>
-                <!--/.bg-holder-->
-
-                <div class="card-body position-relative">
-                  <h5 class="text-warning">Running out of your space?</h5>
-                  <p class="fs--1 mb-0">Your storage will be running out soon. Get more space and powerful productivity features.</p><a class="btn btn-link fs--1 text-warning mt-lg-3 ps-0" href="#!">Upgrade storage<span class="fas fa-chevron-right ms-1" data-fa-transform="shrink-4 down-1"></span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-0">
-            <div class="col-lg-7 col-xl-8 pe-lg-2 mb-3">
-              <div class="card h-lg-100 overflow-hidden">
-                <div class="card-body p-0">
-                  <div class="table-responsive scrollbar">
-                    <table class="table table-dashboard mb-0 table-borderless fs--1 border-200">
-                      <thead class="bg-light">
-                        <tr class="text-900">
-                          <th>Best Selling Products</th>
-                          <th class="text-end">Revenue ($3333)</th>
-                          <th class="pe-card text-end" style="width: 8rem">Revenue (%)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="border-bottom border-200">
-                          <td>
-                            <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="assets/img/products/12.png" width="60" alt="" />
-                              <div class="flex-1 ms-3">
-                                <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Raven Pro</a></h6>
-                                <p class="fw-semi-bold mb-0 text-500">Landing</p>
-                              </div>
+                    <div class="card-body p-0 scrollbar to-do-list-body-height">
+                      <div class="d-flex justify-content-between border-top hover-actions-trigger btn-reveal-trigger px-card border-200 todo-list-item">
+                        <div class="form-check mb-0 d-flex align-items-center">
+                          <input class="form-check-input rounded-circle form-check-line-through p-2 form-check-input-primary" type="checkbox" id="checkbox-todo-0" />
+                          <label class="form-check-label mb-0 p-3" for="checkbox-todo-0">Design a facebook ad</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="hover-actions">
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-clock"></span></button>
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-user-plus"> </span></button>
+                          </div>
+                          <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal-sm transition-none" type="button" id="management-to-do-list-0" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="management-to-do-list-0"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
                             </div>
-                          </td>
-                          <td class="align-middle text-end fw-semi-bold">$1311</td>
-                          <td class="align-middle pe-card">
-                            <div class="d-flex align-items-center">
-                              <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
-                                <div class="progress-bar rounded-pill" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                              <div class="fw-semi-bold ms-2">39%</div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="border-bottom border-200">
-                          <td>
-                            <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="assets/img/products/10.png" width="60" alt="" />
-                              <div class="flex-1 ms-3">
-                                <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Boots4</a></h6>
-                                <p class="fw-semi-bold mb-0 text-500">Portfolio</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="align-middle text-end fw-semi-bold">$860</td>
-                          <td class="align-middle pe-card">
-                            <div class="d-flex align-items-center">
-                              <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
-                                <div class="progress-bar rounded-pill" role="progressbar" style="width: 26%;" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                              <div class="fw-semi-bold ms-2">26%</div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="border-bottom border-200">
-                          <td>
-                            <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="assets/img/products/11.png" width="60" alt="" />
-                              <div class="flex-1 ms-3">
-                                <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Falcon</a></h6>
-                                <p class="fw-semi-bold mb-0 text-500">Admin</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="align-middle text-end fw-semi-bold">$539</td>
-                          <td class="align-middle pe-card">
-                            <div class="d-flex align-items-center">
-                              <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
-                                <div class="progress-bar rounded-pill" role="progressbar" style="width: 16%;" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                              <div class="fw-semi-bold ms-2">16%</div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="border-bottom border-200">
-                          <td>
-                            <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="assets/img/products/14.png" width="60" alt="" />
-                              <div class="flex-1 ms-3">
-                                <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Slick</a></h6>
-                                <p class="fw-semi-bold mb-0 text-500">Builder</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="align-middle text-end fw-semi-bold">$343</td>
-                          <td class="align-middle pe-card">
-                            <div class="d-flex align-items-center">
-                              <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
-                                <div class="progress-bar rounded-pill" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                              <div class="fw-semi-bold ms-2">10%</div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="d-flex align-items-center position-relative"><img class="rounded-1 border border-200" src="assets/img/products/13.png" width="60" alt="" />
-                              <div class="flex-1 ms-3">
-                                <h6 class="mb-1 fw-semi-bold"><a class="text-dark stretched-link" href="#!">Reign Pro</a></h6>
-                                <p class="fw-semi-bold mb-0 text-500">Agency</p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="align-middle text-end fw-semi-bold">$280</td>
-                          <td class="align-middle pe-card">
-                            <div class="d-flex align-items-center">
-                              <div class="progress me-3 rounded-3 bg-200" style="height: 5px;width:80px">
-                                <div class="progress-bar rounded-pill" role="progressbar" style="width: 8%;" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                              <div class="fw-semi-bold ms-2">8%</div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="card-footer bg-light py-2">
-                  <div class="row flex-between-center">
-                    <div class="col-auto">
-                      <select class="form-select form-select-sm">
-                        <option>Last 7 days</option>
-                        <option>Last Month</option>
-                        <option>Last Year</option>
-                      </select>
-                    </div>
-                    <div class="col-auto"><a class="btn btn-sm btn-falcon-default" href="#!">View All</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-5 col-xl-4 ps-lg-2 mb-3">
-              <div class="card">
-                <div class="card-header d-flex flex-between-center bg-light py-2">
-                  <h6 class="mb-0">Shared Files</h6><a class="py-1 fs--1 font-sans-serif" href="#!">View All</a>
-                </div>
-                <div class="card-body pb-0">
-                  <div class="d-flex mb-3 hover-actions-trigger align-items-center">
-                    <div class="file-thumbnail"><img class="border h-100 w-100 fit-cover rounded-2" src="assets/img/products/5-thumb.png" alt="" />
-                    </div>
-                    <div class="ms-3 flex-shrink-1 flex-grow-1">
-                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="#!">apple-smart-watch.png</a></h6>
-                      <div class="fs--1"><span class="fw-semi-bold">Antony</span><span class="fw-medium text-600 ms-2">Just Now</span></div>
-                      <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="assets/img/icons/cloud-download.svg" download="download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
-                        <button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15" /></button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <hr class="bg-200" />
-                  <div class="d-flex mb-3 hover-actions-trigger align-items-center">
-                    <div class="file-thumbnail"><img class="border h-100 w-100 fit-cover rounded-2" src="assets/img/products/3-thumb.png" alt="" />
-                    </div>
-                    <div class="ms-3 flex-shrink-1 flex-grow-1">
-                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="#!">iphone.jpg</a></h6>
-                      <div class="fs--1"><span class="fw-semi-bold">Antony</span><span class="fw-medium text-600 ms-2">Yesterday at 1:30 PM</span></div>
-                      <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="assets/img/icons/cloud-download.svg" download="download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
-                        <button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15" /></button>
+                      <div class="d-flex justify-content-between border-top hover-actions-trigger btn-reveal-trigger px-card border-200 todo-list-item">
+                        <div class="form-check mb-0 d-flex align-items-center">
+                          <input class="form-check-input rounded-circle form-check-line-through p-2 form-check-input-secondary" type="checkbox" id="checkbox-todo-1" />
+                          <label class="form-check-label mb-0 p-3" for="checkbox-todo-1">Analyze Data</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="hover-actions">
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-clock"></span></button>
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-user-plus"> </span></button>
+                          </div>
+                          <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal-sm transition-none" type="button" id="management-to-do-list-1" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="management-to-do-list-1"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <hr class="bg-200" />
-                  <div class="d-flex mb-3 hover-actions-trigger align-items-center">
-                    <div class="file-thumbnail"><img class="img-fluid" src="assets/img/icons/zip.png" alt="" />
-                    </div>
-                    <div class="ms-3 flex-shrink-1 flex-grow-1">
-                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="#!">Falcon v1.8.2</a></h6>
-                      <div class="fs--1"><span class="fw-semi-bold">Jane</span><span class="fw-medium text-600 ms-2">27 Sep at 10:30 AM</span></div>
-                      <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="assets/img/icons/cloud-download.svg" download="download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
-                        <button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15" /></button>
+                      <div class="d-flex justify-content-between border-top hover-actions-trigger btn-reveal-trigger px-card border-200 todo-list-item">
+                        <div class="form-check mb-0 d-flex align-items-center">
+                          <input class="form-check-input rounded-circle form-check-line-through p-2 form-check-input-success" type="checkbox" id="checkbox-todo-2" />
+                          <label class="form-check-label mb-0 p-3" for="checkbox-todo-2">Youtube campaign</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="hover-actions">
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-clock"></span></button>
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-user-plus"> </span></button>
+                          </div>
+                          <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal-sm transition-none" type="button" id="management-to-do-list-2" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="management-to-do-list-2"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <hr class="bg-200" />
-                  <div class="d-flex mb-3 hover-actions-trigger align-items-center">
-                    <div class="file-thumbnail"><img class="border h-100 w-100 fit-cover rounded-2" src="assets/img/products/2-thumb.png" alt="" />
-                    </div>
-                    <div class="ms-3 flex-shrink-1 flex-grow-1">
-                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="#!">iMac.jpg</a></h6>
-                      <div class="fs--1"><span class="fw-semi-bold">Rowen</span><span class="fw-medium text-600 ms-2">23 Sep at 6:10 PM</span></div>
-                      <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="assets/img/icons/cloud-download.svg" download="download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
-                        <button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15" /></button>
+                      <div class="d-flex justify-content-between border-top hover-actions-trigger btn-reveal-trigger px-card border-200 todo-list-item">
+                        <div class="form-check mb-0 d-flex align-items-center">
+                          <input class="form-check-input rounded-circle form-check-line-through p-2 form-check-input-warning" type="checkbox" id="checkbox-todo-3" />
+                          <label class="form-check-label mb-0 p-3" for="checkbox-todo-3">Assign 10 employee</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="hover-actions">
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-clock"></span></button>
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-user-plus"> </span></button>
+                          </div>
+                          <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal-sm transition-none" type="button" id="management-to-do-list-3" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="management-to-do-list-3"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <hr class="bg-200" />
-                  <div class="d-flex mb-3 hover-actions-trigger align-items-center">
-                    <div class="file-thumbnail"><img class="img-fluid" src="assets/img/icons/docs.png" alt="" />
-                    </div>
-                    <div class="ms-3 flex-shrink-1 flex-grow-1">
-                      <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="#!">functions.php</a></h6>
-                      <div class="fs--1"><span class="fw-semi-bold">John</span><span class="fw-medium text-600 ms-2">1 Oct at 4:30 PM</span></div>
-                      <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Download" href="assets/img/icons/cloud-download.svg" download="download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15" /></a>
-                        <button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15" /></button>
+                      <div class="d-flex justify-content-between border-top hover-actions-trigger btn-reveal-trigger px-card border-200 todo-list-item">
+                        <div class="form-check mb-0 d-flex align-items-center">
+                          <input class="form-check-input rounded-circle form-check-line-through p-2 form-check-input-danger" type="checkbox" id="checkbox-todo-4" />
+                          <label class="form-check-label mb-0 p-3" for="checkbox-todo-4">Meeting at 12</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="hover-actions">
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-clock"></span></button>
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-user-plus"> </span></button>
+                          </div>
+                          <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal-sm transition-none" type="button" id="management-to-do-list-4" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="management-to-do-list-4"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row g-0">
-            <div class="col-sm-6 col-xxl-3 pe-sm-2 mb-3 mb-xxl-0">
-              <div class="card">
-                <div class="card-header d-flex flex-between-center bg-light py-2">
-                  <h6 class="mb-0">Active Users</h6>
-                  <div class="dropdown font-sans-serif btn-reveal-trigger">
-                    <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-active-user" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-active-user"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                      <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body py-2">
-                  <div class="d-flex align-items-center position-relative mb-3">
-                    <div class="avatar avatar-2xl status-online">
-                      <img class="rounded-circle" src="assets/img/team/1.jpg" alt="" />
-
-                    </div>
-                    <div class="flex-1 ms-3">
-                      <h6 class="mb-0 fw-semi-bold"><a class="stretched-link text-900" href="pages/user/profile.html">Emma Watson</a></h6>
-                      <p class="text-500 fs--2 mb-0">Admin</p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center position-relative mb-3">
-                    <div class="avatar avatar-2xl status-online">
-                      <img class="rounded-circle" src="assets/img/team/2.jpg" alt="" />
-
-                    </div>
-                    <div class="flex-1 ms-3">
-                      <h6 class="mb-0 fw-semi-bold"><a class="stretched-link text-900" href="pages/user/profile.html">Antony Hopkins</a></h6>
-                      <p class="text-500 fs--2 mb-0">Moderator</p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center position-relative mb-3">
-                    <div class="avatar avatar-2xl status-away">
-                      <img class="rounded-circle" src="assets/img/team/3.jpg" alt="" />
-
-                    </div>
-                    <div class="flex-1 ms-3">
-                      <h6 class="mb-0 fw-semi-bold"><a class="stretched-link text-900" href="pages/user/profile.html">Anna Karinina</a></h6>
-                      <p class="text-500 fs--2 mb-0">Editor</p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center position-relative mb-3">
-                    <div class="avatar avatar-2xl status-offline">
-                      <img class="rounded-circle" src="assets/img/team/4.jpg" alt="" />
-
-                    </div>
-                    <div class="flex-1 ms-3">
-                      <h6 class="mb-0 fw-semi-bold"><a class="stretched-link text-900" href="pages/user/profile.html">John Lee</a></h6>
-                      <p class="text-500 fs--2 mb-0">Admin</p>
-                    </div>
-                  </div>
-                  <div class="d-flex align-items-center position-relative false">
-                    <div class="avatar avatar-2xl status-offline">
-                      <img class="rounded-circle" src="assets/img/team/5.jpg" alt="" />
-
-                    </div>
-                    <div class="flex-1 ms-3">
-                      <h6 class="mb-0 fw-semi-bold"><a class="stretched-link text-900" href="pages/user/profile.html">Rowen Atkinson</a></h6>
-                      <p class="text-500 fs--2 mb-0">Editor</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer bg-light p-0"><a class="btn btn-sm btn-link d-block w-100 py-2" href="app/social/followers.html">All active users<span class="fas fa-chevron-right ms-1 fs--2"></span></a></div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-xxl-3 ps-sm-2 order-xxl-1 mb-3 mb-xxl-0">
-              <div class="card h-100">
-                <div class="card-header bg-light d-flex flex-between-center py-2">
-                  <h6 class="mb-0">Bandwidth Saved</h6>
-                  <div class="dropdown font-sans-serif btn-reveal-trigger">
-                    <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-bandwidth-saved" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-bandwidth-saved"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                      <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body d-flex flex-center flex-column">
-                  <div class="progress-circle progress-circle-dashboard" data-options='{"color":"url(#gradient)","progress":93,"strokeWidth":5,"trailWidth":5}'></div>
-                  <div class="text-center mt-4">
-                    <h6 class="fs-0 mb-1"><span class="fas fa-check text-success me-1" data-fa-transform="shrink-2"></span>35.75 GB saved</h6>
-                    <p class="fs--1 mb-0">38.44 GB total bandwidth</p>
-                  </div>
-                </div>
-                <div class="card-footer bg-light py-2">
-                  <div class="row flex-between-center">
-                    <div class="col-auto">
-                      <select class="form-select form-select-sm">
-                        <option>Last 6 Months</option>
-                        <option>Last Year</option>
-                        <option>Last 2 Year</option>
-                      </select>
-                    </div>
-                    <div class="col-auto"><a class="fs--1 font-sans-serif" href="#!">Help</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xxl-6 px-xxl-2">
-              <div class="card h-100">
-                <div class="card-header bg-light py-2">
-                  <div class="row flex-between-center">
-                    <div class="col-auto">
-                      <h6 class="mb-0">Top Products</h6>
-                    </div>
-                    <div class="col-auto d-flex"><a class="btn btn-link btn-sm me-2" href="#!">View Details</a>
-                      <div class="dropdown font-sans-serif btn-reveal-trigger">
-                        <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal" type="button" id="dropdown-top-products" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                        <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-top-products"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
-                          <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                      <div class="d-flex justify-content-between border-top hover-actions-trigger btn-reveal-trigger px-card border-200 todo-list-item border-bottom">
+                        <div class="form-check mb-0 d-flex align-items-center">
+                          <input class="form-check-input rounded-circle form-check-line-through p-2 form-check-input-info" type="checkbox" id="checkbox-todo-5" />
+                          <label class="form-check-label mb-0 p-3" for="checkbox-todo-5">Meeting at 10</label>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="hover-actions">
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-clock"></span></button>
+                            <button class="btn btn-light icon-item rounded-3 me-2 fs--2 icon-item-sm"><span class="fas fa-user-plus"> </span></button>
+                          </div>
+                          <div class="dropdown font-sans-serif btn-reveal-trigger">
+                            <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal-sm transition-none" type="button" id="management-to-do-list-5" data-bs-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="management-to-do-list-5"><a class="dropdown-item" href="#!">View</a><a class="dropdown-item" href="#!">Export</a>
+                              <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="#!">Remove</a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div class="card-footer bg-light p-0"><a class="btn btn-sm btn-link d-block py-2" href="#!"><span class="fas fa-plus me-1 fs--2"></span>Add New Task</a></div>
                   </div>
                 </div>
-                <div class="card-body h-100">
-                  <div class="echart-bar-top-products h-100" data-echart-responsive="true"></div>
-                </div>
               </div>
-            </div>
-          </div>
-          <footer class="footer">
-            <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
-              <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600">Thank you for creating with Falcon <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2021 &copy; <a href="https://themewagon.com">Themewagon</a></p>
-              </div>
-              <div class="col-12 col-sm-auto text-center">
-                <p class="mb-0 text-600">v3.2.0</p>
-              </div>
-            </div>
-          </footer>
+
+            @endif
+
+
+
         </div>
-        <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
-          <div class="modal-dialog mt-6" role="document">
-            <div class="modal-content border-0">
-              <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
-                <div class="position-relative z-index-1 light">
-                  <h4 class="mb-0 text-white" id="authentication-modal-label">Register</h4>
-                  <p class="fs--1 mb-0 text-white">Please create your free Falcon account</p>
-                </div>
-                <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body py-4 px-5">
-                <form>
-                  <div class="mb-3">
-                    <label class="form-label" for="modal-auth-name">Name</label>
-                    <input class="form-control" type="text" autocomplete="on" id="modal-auth-name" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="modal-auth-email">Email address</label>
-                    <input class="form-control" type="email" autocomplete="on" id="modal-auth-email" />
-                  </div>
-                  <div class="row gx-2">
-                    <div class="mb-3 col-sm-6">
-                      <label class="form-label" for="modal-auth-password">Password</label>
-                      <input class="form-control" type="password" autocomplete="on" id="modal-auth-password" />
-                    </div>
-                    <div class="mb-3 col-sm-6">
-                      <label class="form-label" for="modal-auth-confirm-password">Confirm Password</label>
-                      <input class="form-control" type="password" autocomplete="on" id="modal-auth-confirm-password" />
-                    </div>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="modal-auth-register-checkbox" />
-                    <label class="form-label" for="modal-auth-register-checkbox">I accept the <a href="#!">terms </a>and <a href="#!">privacy policy</a></label>
-                  </div>
-                  <div class="mb-3">
-                    <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Register</button>
-                  </div>
-                </form>
-                <div class="position-relative mt-5">
-                  <hr class="bg-300" />
-                  <div class="divider-content-center">or register with</div>
-                </div>
-                <div class="row g-2 mt-2">
-                  <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                  <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </main>
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
-
+    {{-- @endif --}}
 
     <div class="modal fade modal-fixed-right modal-theme overflow-hidden" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="settings-modal-label" aria-hidden="true">
       <div class="modal-dialog modal-dialog-vertical" role="document">

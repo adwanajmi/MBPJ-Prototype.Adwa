@@ -13,7 +13,7 @@ class UpdateauditTrailRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class UpdateauditTrailRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'activity' => [
+                'string',
+                'required',
+            ],
+
+            'date' => [
+                'string',
+                'required',
+            ],
+
+            'user' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }
