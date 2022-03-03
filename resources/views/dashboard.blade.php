@@ -155,8 +155,10 @@
                           </a>
                           <!-- more inner pages-->
                         </li>
-
                     </ul>
+                </li>
+
+            </ul>
 
                 @endif
 
@@ -192,12 +194,13 @@
           </div>
         </nav>
 
+
         <div class="content">
           <nav class="navbar navbar-light navbar-glass navbar-top navbar-expand">
 
             <button class="btn navbar-toggler-humburger-icon navbar-toggler me-1 me-sm-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
             <a class="navbar-brand me-1 me-sm-3" href="index.html">
-              <div class="d-flex align-items-center"><img class="me-2" src="assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" /><span class="font-sans-serif">falcon</span>
+              <div class="d-flex align-items-center"><img class="me-2" src="mbpj.jpeg" alt="" width="40" /><span class="font-sans-serif">MBPJ</span>
               </div>
             </a>
             <ul class="navbar-nav align-items-center d-none d-lg-block">
@@ -230,15 +233,13 @@
 
                 @endif
 
-                @if(Auth::check() && Auth::user()->role == "Pelanggan")
+                {{-- @if(Auth::check() && Auth::user()->role == "Pelanggan")
 
                 <div class="btn btn-success btn-lg">
                     Pelanggan
                 </div>
 
-                @endif
-
-
+                @endif --}}
 
             </div>
 
@@ -252,6 +253,7 @@
                 </div>
               </li>
               <li class="nav-item">
+
 
               </li>
 
@@ -345,7 +347,7 @@
                     <div class="position-relative z-index-2">
                       <div>
                         <h3 class="text-primary mb-1">Hello, {{ auth()->user()->name }}!</h3>
-                        <p>Here’s what happening today</p>
+                        <p></p>
                       </div>
                       <div class="d-flex py-3">
                         <div class="pe-3">
@@ -359,306 +361,709 @@
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  <div class="card-body p-0">
-                    <ul class="mb-0 list-unstyled">
+              <div class="card-body fs--1">
+              </div>
 
-                      <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top border-x-0 border-top-0">
-                        <div class="row flex-between-center">
-                          <div class="col">
-                            <div class="d-flex">
-                              <svg class="svg-inline--fa fa-circle fa-w-16 mt-1 fs--2 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg><!-- <div class="fas fa-circle mt-1 fs--2 text-primary"></div> Font Awesome fontawesome.com -->
-                              <p class="fs--1 ps-2 mb-0"><strong>Audit Trail</strong> have activity that need to be see</p>
-                            </div>
-                          </div>
-                          <div class="col-auto d-flex align-items-center"><a class="alert-link fs--1 fw-medium" href="/audit">View Audit Trail<svg class="svg-inline--fa fa-chevron-right fa-w-10 ms-1 fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-chevron-right ms-1 fs--2"></i> Font Awesome fontawesome.com --></a></div>
+              <div class="card mb-3 mb-lg-0">
+                <div class="card-header bg-light d-flex justify-content-between">
+                  <h5 class="mb-0">Events</h5>
+                </div>
+                <div class="card-body fs--1">
+                  <div class="row">
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="/audit">Audit Trail</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">AID MIT</a></p>
+                          <p class="text-1000 mb-0">Access Audit Trail</p>
+                          <p class="text-1000 mb-0">Make adjustment</p>The Liberty Warehouse, New Yourk
+                          <div class="border-dashed-bottom my-3"></div>
                         </div>
-                      </li>
-                      <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top  border-0">
-                        <div class="row flex-between-center">
-                          <div class="col">
-                            <div class="d-flex">
-                              <svg class="svg-inline--fa fa-circle fa-w-16 mt-1 fs--2 text-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg><!-- <div class="fas fa-circle mt-1 fs--2 text-primary"></div> Font Awesome fontawesome.com -->
-                              <p class="fs--1 ps-2 mb-0"><strong>Manage </strong>Pelanggan and Penyelia</p>
-                            </div>
-                          </div>
-                          <div class="col-auto d-flex align-items-center"><a class="alert-link fs--1 fw-medium" href="/user">Manage Now<svg class="svg-inline--fa fa-chevron-right fa-w-10 ms-1 fs--2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg><!-- <i class="fas fa-chevron-right ms-1 fs--2"></i> Font Awesome fontawesome.com --></a></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="/user">Manage User</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">American Nuclear Society</a></p>
+                          <p class="text-1000 mb-0">Manage Pelanggan</p>
+                          <p class="text-1000 mb-0">Manage Admin</p>Place: Workbar - Central Square, Cambridge
+                          <div class="border-dashed-bottom my-3"></div>
                         </div>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="/audit">Newmarket Nights</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">University of Oxford</a></p>
+                          <p class="text-1000 mb-0">Time: 6:00AM</p>
+                          <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>Place: Cambridge Boat Club, Cambridge
+                          <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="../../app/events/event-detail.html">31st Night Celebration</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">Chamber Music Society</a></p>
+                          <p class="text-1000 mb-0">Time: 11:00PM</p>
+                          <p class="text-1000 mb-0">280 people interested</p>Place: Tavern on the Greend, New York
+                          <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="card">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                      <div class="col">
-                        <h5 class="mb-0">User Statistic</h5>
-                      </div>
+            <div class="card-body fs--1">
+            </div>
+
+            <div class="card mb-3 mb-lg-0">
+                <div class="card-header bg-light d-flex justify-content-between">
+                  <h5 class="mb-0">Here's what happening today</h5>
+                  <form>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                      <option selected="selected">Select Category</option>
+                      <option>Health &amp; Wellness</option>
+                      <option>Business &amp; Professional</option>
+
+                    </select>
+                  </form>
                 </div>
-                <!-- Styles -->
+
+
+              <div class="card">
+                 <!-- Styles -->
                 <style>
-                #chartdiv {
-                width: 100%;
-                height: 500px;
-                }
-                </style>
+                    #chartdiv {
+                    width: 100%;
+                    height: 500px;
+                    }
+                    </style>
 
-                <!-- Resources -->
-                <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-                <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-                <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+                    <!-- Resources -->
+                    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+                    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+                    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-                <!-- Chart code -->
-                <script>
-                am5.ready(function() {
+                    <!-- Chart code -->
+                    <script>
+                    am5.ready(function() {
 
-                // Create root element
-                // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-                var root = am5.Root.new("chartdiv");
+                    // Data
+                    var allData = {
+                    "2002": {
+                        "Friendster": 0,
+                        "Facebook": 0,
+                        "Flickr": 0,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 0,
+                        "Instagram": 0,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 0
+                    },
+                    "2003": {
+                        "Friendster": 4470000,
+                        "Facebook": 0,
+                        "Flickr": 0,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 0,
+                        "Instagram": 0,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 0
+                    },
+                    "2004": {
+                        "Friendster": 5970054,
+                        "Facebook": 0,
+                        "Flickr": 3675135,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 0,
+                        "Instagram": 0,
+                        "MySpace": 980036,
+                        "Orkut": 4900180,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 0
+                    },
+                    "2005": {
+                        "Friendster": 7459742,
+                        "Facebook": 0,
+                        "Flickr": 7399354,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 9731610,
+                        "Instagram": 0,
+                        "MySpace": 19490059,
+                        "Orkut": 9865805,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 1946322
+                    },
+                    "2006": {
+                        "Friendster": 8989854,
+                        "Facebook": 0,
+                        "Flickr": 14949270,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 19932360,
+                        "Instagram": 0,
+                        "MySpace": 54763260,
+                        "Orkut": 14966180,
+                        "Pinterest": 0,
+                        "Reddit": 248309,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 19878248
+                    },
+                    "2007": {
+                        "Friendster": 24253200,
+                        "Facebook": 0,
+                        "Flickr": 29299875,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 29533250,
+                        "Instagram": 0,
+                        "MySpace": 69299875,
+                        "Orkut": 26916562,
+                        "Pinterest": 0,
+                        "Reddit": 488331,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 143932250
+                    },
+                    "2008": {
+                        "Friendster": 51008911,
+                        "Facebook": 100000000,
+                        "Flickr": 30000000,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 55045618,
+                        "Instagram": 0,
+                        "MySpace": 72408233,
+                        "Orkut": 44357628,
+                        "Pinterest": 0,
+                        "Reddit": 1944940,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 294493950
+                    },
+                    "2009": {
+                        "Friendster": 28804331,
+                        "Facebook": 276000000,
+                        "Flickr": 41834525,
+                        "Google Buzz": 0,
+                        "Google+": 0,
+                        "Hi5": 57893524,
+                        "Instagram": 0,
+                        "MySpace": 70133095,
+                        "Orkut": 47366905,
+                        "Pinterest": 0,
+                        "Reddit": 3893524,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 0,
+                        "WeChat": 0,
+                        "Weibo": 0,
+                        "Whatsapp": 0,
+                        "YouTube": 413611440
+                    },
+                    "2010": {
+                        "Friendster": 0,
+                        "Facebook": 517750000,
+                        "Flickr": 54708063,
+                        "Google Buzz": 166029650,
+                        "Google+": 0,
+                        "Hi5": 59953290,
+                        "Instagram": 0,
+                        "MySpace": 68046710,
+                        "Orkut": 49941613,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 43250000,
+                        "WeChat": 0,
+                        "Weibo": 19532900,
+                        "Whatsapp": 0,
+                        "YouTube": 480551990
+                    },
+                    "2011": {
+                        "Friendster": 0,
+                        "Facebook": 766000000,
+                        "Flickr": 66954600,
+                        "Google Buzz": 170000000,
+                        "Google+": 0,
+                        "Hi5": 46610848,
+                        "Instagram": 0,
+                        "MySpace": 46003536,
+                        "Orkut": 47609080,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 0,
+                        "Twitter": 92750000,
+                        "WeChat": 47818400,
+                        "Weibo": 48691040,
+                        "Whatsapp": 0,
+                        "YouTube": 642669824
+                    },
+                    "2012": {
+                        "Friendster": 0,
+                        "Facebook": 979750000,
+                        "Flickr": 79664888,
+                        "Google Buzz": 170000000,
+                        "Google+": 107319100,
+                        "Hi5": 0,
+                        "Instagram": 0,
+                        "MySpace": 0,
+                        "Orkut": 45067022,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 146890156,
+                        "Twitter": 160250000,
+                        "WeChat": 118123370,
+                        "Weibo": 79195730,
+                        "Whatsapp": 0,
+                        "YouTube": 844638200
+                    },
+                    "2013": {
+                        "Friendster": 0,
+                        "Facebook": 1170500000,
+                        "Flickr": 80000000,
+                        "Google Buzz": 170000000,
+                        "Google+": 205654700,
+                        "Hi5": 0,
+                        "Instagram": 117500000,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 0,
+                        "Reddit": 0,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 293482050,
+                        "Twitter": 223675000,
+                        "WeChat": 196523760,
+                        "Weibo": 118261880,
+                        "Whatsapp": 300000000,
+                        "YouTube": 1065223075
+                    },
+                    "2014": {
+                        "Friendster": 0,
+                        "Facebook": 1334000000,
+                        "Flickr": 0,
+                        "Google Buzz": 170000000,
+                        "Google+": 254859015,
+                        "Hi5": 0,
+                        "Instagram": 250000000,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 0,
+                        "Reddit": 135786956,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 388721163,
+                        "Twitter": 223675000,
+                        "WeChat": 444232415,
+                        "Weibo": 154890345,
+                        "Whatsapp": 498750000,
+                        "YouTube": 1249451725
+                    },
+                    "2015": {
+                        "Friendster": 0,
+                        "Facebook": 1516750000,
+                        "Flickr": 0,
+                        "Google Buzz": 170000000,
+                        "Google+": 298950015,
+                        "Hi5": 0,
+                        "Instagram": 400000000,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 0,
+                        "Reddit": 163346676,
+                        "Snapchat": 0,
+                        "TikTok": 0,
+                        "Tumblr": 475923363,
+                        "Twitter": 304500000,
+                        "WeChat": 660843407,
+                        "Weibo": 208716685,
+                        "Whatsapp": 800000000,
+                        "YouTube": 1328133360
+                    },
+                    "2016": {
+                        "Friendster": 0,
+                        "Facebook": 1753500000,
+                        "Flickr": 0,
+                        "Google Buzz": 0,
+                        "Google+": 398648000,
+                        "Hi5": 0,
+                        "Instagram": 550000000,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 143250000,
+                        "Reddit": 238972480,
+                        "Snapchat": 238648000,
+                        "TikTok": 0,
+                        "Tumblr": 565796720,
+                        "Twitter": 314500000,
+                        "WeChat": 847512320,
+                        "Weibo": 281026560,
+                        "Whatsapp": 1000000000,
+                        "YouTube": 1399053600
+                    },
+                    "2017": {
+                        "Friendster": 0,
+                        "Facebook": 2035750000,
+                        "Flickr": 0,
+                        "Google Buzz": 0,
+                        "Google+": 495657000,
+                        "Hi5": 0,
+                        "Instagram": 750000000,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 195000000,
+                        "Reddit": 297394200,
+                        "Snapchat": 0,
+                        "TikTok": 239142500,
+                        "Tumblr": 593783960,
+                        "Twitter": 328250000,
+                        "WeChat": 921742750,
+                        "Weibo": 357569030,
+                        "Whatsapp": 1333333333,
+                        "YouTube": 1495657000
+                    },
+                    "2018": {
+                        "Friendster": 0,
+                        "Facebook": 2255250000,
+                        "Flickr": 0,
+                        "Google Buzz": 0,
+                        "Google+": 430000000,
+                        "Hi5": 0,
+                        "Instagram": 1000000000,
+                        "MySpace": 0,
+                        "Orkut": 0,
+                        "Pinterest": 246500000,
+                        "Reddit": 355000000,
+                        "Snapchat": 0,
+                        "TikTok": 500000000,
+                        "Tumblr": 624000000,
+                        "Twitter": 329500000,
+                        "WeChat": 1000000000,
+                        "Weibo": 431000000,
+                        "Whatsapp": 1433333333,
+                        "YouTube": 1900000000
+                    }
+                    };
 
-                // Set themes
-                // https://www.amcharts.com/docs/v5/concepts/themes/
-                root.setThemes([
-                am5themes_Animated.new(root)
-                ]);
 
-                var data = [{
-                name: "Monica",
-                steps: 45688,
-                pictureSettings: {
-                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
-                }
-                }, {
-                name: "Joey",
-                steps: 35781,
-                pictureSettings: {
-                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/joey.jpg"
-                }
-                }, {
-                name: "Ross",
-                steps: 25464,
-                pictureSettings: {
-                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/ross.jpg"
-                }
-                }, {
-                name: "Phoebe",
-                steps: 18788,
-                pictureSettings: {
-                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/phoebe.jpg"
-                }
-                }, {
-                name: "Rachel",
-                steps: 15465,
-                pictureSettings: {
-                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/rachel.jpg"
-                }
-                }, {
-                name: "Chandler",
-                steps: 11561,
-                pictureSettings: {
-                    src: "https://www.amcharts.com/wp-content/uploads/2019/04/chandler.jpg"
-                }
-                }];
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    var root = am5.Root.new("chartdiv");
 
-                // Create chart
-                // https://www.amcharts.com/docs/v5/charts/xy-chart/
-                var chart = root.container.children.push(
-                am5xy.XYChart.new(root, {
-                    panX: false,
-                    panY: false,
+                    root.numberFormatter.setAll({
+                    numberFormat: "#a",
+
+                    // Group only into M (millions), and B (billions)
+                    bigNumberPrefixes: [
+                        { number: 1e6, suffix: "M" },
+                        { number: 1e9, suffix: "B" }
+                    ],
+
+                    // Do not use small number prefixes at all
+                    smallNumberPrefixes: []
+                    });
+
+                    var stepDuration = 2000;
+
+
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([am5themes_Animated.new(root)]);
+
+
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+                    var chart = root.container.children.push(am5xy.XYChart.new(root, {
+                    panX: true,
+                    panY: true,
                     wheelX: "none",
-                    wheelY: "none",
-                    paddingBottom: 50,
-                    paddingTop: 40
-                })
-                );
-
-                // Create axes
-                // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-
-                var xRenderer = am5xy.AxisRendererX.new(root, {});
-                xRenderer.grid.template.set("visible", false);
-
-                var xAxis = chart.xAxes.push(
-                am5xy.CategoryAxis.new(root, {
-                    paddingTop:40,
-                    categoryField: "name",
-                    renderer: xRenderer
-                })
-                );
+                    wheelY: "none"
+                    }));
 
 
-                var yRenderer = am5xy.AxisRendererY.new(root, {});
-                yRenderer.grid.template.set("strokeDasharray", [3]);
+                    // We don't want zoom-out button to appear while animating, so we hide it at all
+                    chart.zoomOutButton.set("forceHidden", true);
 
-                var yAxis = chart.yAxes.push(
-                am5xy.ValueAxis.new(root, {
-                    min: 0,
+
+                    // Create axes
+                    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+                    var yRenderer = am5xy.AxisRendererY.new(root, {
+                    minGridDistance: 20,
+                    inversed: true
+                    });
+                    // hide grid
+                    yRenderer.grid.template.set("visible", false);
+
+                    var yAxis = chart.yAxes.push(am5xy.CategoryAxis.new(root, {
+                    maxDeviation: 0,
+                    categoryField: "network",
                     renderer: yRenderer
-                })
-                );
+                    }));
 
-                // Add series
-                // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-                var series = chart.series.push(
-                am5xy.ColumnSeries.new(root, {
-                    name: "Income",
+                    var xAxis = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+                    maxDeviation: 0,
+                    min: 0,
+                    strictMinMax: true,
+                    extraMax: 0.1,
+                    renderer: am5xy.AxisRendererX.new(root, {})
+                    }));
+
+                    xAxis.set("interpolationDuration", stepDuration / 10);
+                    xAxis.set("interpolationEasing", am5.ease.linear);
+
+
+                    // Add series
+                    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+                    var series = chart.series.push(am5xy.ColumnSeries.new(root, {
                     xAxis: xAxis,
                     yAxis: yAxis,
-                    valueYField: "steps",
-                    categoryXField: "name",
-                    sequencedInterpolation: true,
-                    calculateAggregates: true,
-                    maskBullets: false,
-                    tooltip: am5.Tooltip.new(root, {
-                    dy: -30,
-                    pointerOrientation: "vertical",
-                    labelText: "{valueY}"
-                    })
-                })
-                );
+                    valueXField: "value",
+                    categoryYField: "network"
+                    }));
 
-                series.columns.template.setAll({
-                strokeOpacity: 0,
-                cornerRadiusBR: 10,
-                cornerRadiusTR: 10,
-                cornerRadiusBL: 10,
-                cornerRadiusTL: 10,
-                maxWidth: 50,
-                fillOpacity: 0.8
-                });
+                    // Rounded corners for columns
+                    series.columns.template.setAll({ cornerRadiusBR: 5, cornerRadiusTR: 5 });
 
-                var currentlyHovered;
-
-                series.columns.template.events.on("pointerover", function (e) {
-                handleHover(e.target.dataItem);
-                });
-
-                series.columns.template.events.on("pointerout", function (e) {
-                handleOut();
-                });
-
-                function handleHover(dataItem) {
-                if (dataItem && currentlyHovered != dataItem) {
-                    handleOut();
-                    currentlyHovered = dataItem;
-                    var bullet = dataItem.bullets[0];
-                    bullet.animate({
-                    key: "locationY",
-                    to: 1,
-                    duration: 600,
-                    easing: am5.ease.out(am5.ease.cubic)
+                    // Make each column to be of a different color
+                    series.columns.template.adapters.add("fill", function (fill, target) {
+                    return chart.get("colors").getIndex(series.columns.indexOf(target));
                     });
-                }
-                }
 
-                function handleOut() {
-                if (currentlyHovered) {
-                    var bullet = currentlyHovered.bullets[0];
-                    bullet.animate({
-                    key: "locationY",
-                    to: 0,
-                    duration: 600,
-                    easing: am5.ease.out(am5.ease.cubic)
+                    series.columns.template.adapters.add("stroke", function (stroke, target) {
+                    return chart.get("colors").getIndex(series.columns.indexOf(target));
                     });
-                }
-                }
 
-                var circleTemplate = am5.Template.new({});
+                    // Add label bullet
+                    series.bullets.push(function () {
+                    return am5.Bullet.new(root, {
+                        locationX: 1,
+                        sprite: am5.Label.new(root, {
+                        text: "{valueXWorking.formatNumber('#.# a')}",
+                        fill: root.interfaceColors.get("alternativeText"),
+                        centerX: am5.p100,
+                        centerY: am5.p50,
+                        populateText: true
+                        })
+                    });
+                    });
 
-                series.bullets.push(function (root, series, dataItem) {
-                var bulletContainer = am5.Container.new(root, {});
-                var circle = bulletContainer.children.push(
-                    am5.Circle.new(
-                    root,
-                    {
-                        radius: 34
-                    },
-                    circleTemplate
-                    )
-                );
+                    var label = chart.plotContainer.children.push(am5.Label.new(root, {
+                    text: "2002",
+                    fontSize: "8em",
+                    opacity: 0.2,
+                    x: am5.p100,
+                    y: am5.p100,
+                    centerY: am5.p100,
+                    centerX: am5.p100
+                    }));
 
-                var maskCircle = bulletContainer.children.push(
-                    am5.Circle.new(root, { radius: 27 })
-                );
+                    // Get series item by category
+                    function getSeriesItem(category) {
+                    for (var i = 0; i < series.dataItems.length; i++) {
+                        var dataItem = series.dataItems[i];
+                        if (dataItem.get("categoryY") == category) {
+                        return dataItem;
+                        }
+                    }
+                    }
 
-                // only containers can be masked, so we add image to another container
-                var imageContainer = bulletContainer.children.push(
-                    am5.Container.new(root, {
-                    mask: maskCircle
-                    })
-                );
+                    // Axis sorting
+                    function sortCategoryAxis() {
+                    // sort by value
+                    series.dataItems.sort(function (x, y) {
+                        return y.get("valueX") - x.get("valueX"); // descending
+                        //return x.get("valueX") - y.get("valueX"); // ascending
+                    });
 
-                var image = imageContainer.children.push(
-                    am5.Picture.new(root, {
-                    templateField: "pictureSettings",
-                    centerX: am5.p50,
-                    centerY: am5.p50,
-                    width: 60,
-                    height: 60
-                    })
-                );
+                    // go through each axis item
+                    am5.array.each(yAxis.dataItems, function (dataItem) {
+                        // get corresponding series item
+                        var seriesDataItem = getSeriesItem(dataItem.get("category"));
 
-                return am5.Bullet.new(root, {
-                    locationY: 0,
-                    sprite: bulletContainer
-                });
-                });
+                        if (seriesDataItem) {
+                        // get index of series data item
+                        var index = series.dataItems.indexOf(seriesDataItem);
+                        // calculate delta position
+                        var deltaPosition =
+                            (index - dataItem.get("index", 0)) / series.dataItems.length;
+                        // set index to be the same as series data item index
+                        if (dataItem.get("index") != index) {
+                            dataItem.set("index", index);
+                            // set deltaPosition instanlty
+                            dataItem.set("deltaPosition", -deltaPosition);
+                            // animate delta position to 0
+                            dataItem.animate({
+                            key: "deltaPosition",
+                            to: 0,
+                            duration: stepDuration / 2,
+                            easing: am5.ease.out(am5.ease.cubic)
+                            });
+                        }
+                        }
+                    });
+                    // sort axis items by index.
+                    // This changes the order instantly, but as deltaPosition is set, they keep in the same places and then animate to true positions.
+                    yAxis.dataItems.sort(function (x, y) {
+                        return x.get("index") - y.get("index");
+                    });
+                    }
 
-                // heatrule
-                series.set("heatRules", [
-                {
-                    dataField: "valueY",
-                    min: am5.color(0xe5dc36),
-                    max: am5.color(0x5faa46),
-                    target: series.columns.template,
-                    key: "fill"
-                },
-                {
-                    dataField: "valueY",
-                    min: am5.color(0xe5dc36),
-                    max: am5.color(0x5faa46),
-                    target: circleTemplate,
-                    key: "fill"
-                }
-                ]);
+                    var year = 2002;
 
-                series.data.setAll(data);
-                xAxis.data.setAll(data);
+                    // update data with values each 1.5 sec
+                    var interval = setInterval(function () {
+                    year++;
 
-                var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
-                cursor.lineX.set("visible", false);
-                cursor.lineY.set("visible", false);
+                    if (year > 2018) {
+                        clearInterval(interval);
+                        clearInterval(sortInterval);
+                    }
 
-                cursor.events.on("cursormoved", function () {
-                var dataItem = series.get("tooltip").dataItem;
-                if (dataItem) {
-                    handleHover(dataItem);
-                } else {
-                    handleOut();
-                }
-                });
+                    updateData();
+                    }, stepDuration);
 
-                // Make stuff animate on load
-                // https://www.amcharts.com/docs/v5/concepts/animations/
-                series.appear();
-                chart.appear(1000, 100);
+                    var sortInterval = setInterval(function () {
+                    sortCategoryAxis();
+                    }, 100);
 
-                }); // end am5.ready()
-                </script>
+                    function setInitialData() {
+                    var d = allData[year];
 
-                <!-- HTML -->
-                <div id="chartdiv"></div>
-                MBPJ
+                    for (var n in d) {
+                        series.data.push({ network: n, value: d[n] });
+                        yAxis.data.push({ network: n });
+                    }
+                    }
 
-            </div>
+                    function updateData() {
+                    var itemsWithNonZero = 0;
+
+                    if (allData[year]) {
+                        label.set("text", year.toString());
+
+                        am5.array.each(series.dataItems, function (dataItem) {
+                        var category = dataItem.get("categoryY");
+                        var value = allData[year][category];
+
+                        if (value > 0) {
+                            itemsWithNonZero++;
+                        }
+
+                        dataItem.animate({
+                            key: "valueX",
+                            to: value,
+                            duration: stepDuration,
+                            easing: am5.ease.linear
+                        });
+                        dataItem.animate({
+                            key: "valueXWorking",
+                            to: value,
+                            duration: stepDuration,
+                            easing: am5.ease.linear
+                        });
+                        });
+
+                        yAxis.zoom(0, itemsWithNonZero / yAxis.dataItems.length);
+                    }
+                    }
+
+                    setInitialData();
+                    setTimeout(function () {
+                    year++;
+                    updateData();
+                    }, 50);
+
+                    // Make stuff animate on load
+                    // https://www.amcharts.com/docs/v5/concepts/animations/
+                    series.appear(1000);
+                    chart.appear(1000, 100);
+
+                    }); // end am5.ready()
+                    </script>
+
+                    <!-- HTML -->
+                    <div id="chartdiv"></div>
+              </div>
+
+
 
 
             @endif
 
             @if (auth()-> user()->role =="Penyelia")
+
             <div class="col-xxl-6 col-lg-12">
                 <div class="card h-100">
                   <div class="bg-holder bg-card" style="background-image:url(../assets/img/icons/spot-illustrations/corner-3.png);">
@@ -705,9 +1110,215 @@
                     </div>
                   </div>
                 </div>
-              </div>
+            </div>
 
-              <div class="row g-3">
+            <div class="card-body fs--1">
+            </div>
+
+
+            <div class="card-header bg-light d-flex justify-content-between">
+                <h5 class="mb-0">Transaksi Pembayaran dari Jan-Dec 2021</h5>
+            </div>
+
+            <div class="card">
+                  <!-- Styles -->
+                    <style>
+                        #chartdiv {
+                        width: 100%;
+                        height: 500px;
+                        }
+                    </style>
+
+                        <!-- Resources -->
+                        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+                        <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+                        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+                        <!-- Chart code -->
+                        <script>
+                        am5.ready(function() {
+
+                        // Create root element
+                        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                        var root = am5.Root.new("chartdiv");
+
+
+                        // Set themes
+                        // https://www.amcharts.com/docs/v5/concepts/themes/
+                        root.setThemes([
+                        am5themes_Animated.new(root)
+                        ]);
+
+
+                        // Create chart
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+                        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+                        panX: false,
+                        panY: false,
+                        wheelX: "panX",
+                        wheelY: "zoomX",
+                        layout: root.verticalLayout
+                        }));
+
+                        var colors = chart.get("colors");
+
+                        var data = [{
+                        country: "JAN",
+                        visits: 725
+                        }, {
+                        country: "FEB",
+                        visits: 625
+                        }, {
+                        country: "MAC",
+                        visits: 602
+                        }, {
+                        country: "APR",
+                        visits: 509
+                        }, {
+                        country: "MAY",
+                        visits: 322
+                        }, {
+                        country: "JUN",
+                        visits: 214
+                        }, {
+                        country: "JUL",
+                        visits: 204
+                        }, {
+                        country: "AUG",
+                        visits: 198
+                        }, {
+                        country: "SEP",
+                        visits: 165
+                        }, {
+                        country: "OCT",
+                        visits: 130
+                        }, {
+                        country: "NOV",
+                        visits: 93
+                        }, {
+                        country: "DEC",
+                        visits: 41
+                        }];
+
+                        prepareParetoData();
+
+                        function prepareParetoData() {
+                        var total = 0;
+
+                        for (var i = 0; i < data.length; i++) {
+                            var value = data[i].visits;
+                            total += value;
+                        }
+
+                        var sum = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            var value = data[i].visits;
+                            sum += value;
+                            data[i].pareto = sum / total * 100;
+                        }
+                        }
+
+
+
+                        // Create axes
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+                        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+                        categoryField: "country",
+                        renderer: am5xy.AxisRendererX.new(root, {
+                            minGridDistance: 30
+                        })
+                        }));
+
+                        xAxis.get("renderer").labels.template.setAll({
+                        paddingTop: 20
+                        });
+
+                        xAxis.data.setAll(data);
+
+                        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+                        renderer: am5xy.AxisRendererY.new(root, {})
+                        }));
+
+                        var paretoAxisRenderer = am5xy.AxisRendererY.new(root, {opposite:true});
+                        var paretoAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+                        renderer: paretoAxisRenderer,
+                        min:0,
+                        max:100,
+                        strictMinMax:true
+                        }));
+
+                        paretoAxisRenderer.grid.template.set("forceHidden", true);
+                        paretoAxis.set("numberFormat", "#'%");
+
+
+                        // Add series
+                        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+                        var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+                        xAxis: xAxis,
+                        yAxis: yAxis,
+                        valueYField: "visits",
+                        categoryXField: "country"
+                        }));
+
+                        series.columns.template.setAll({
+                        tooltipText: "{categoryX}: {valueY}",
+                        tooltipY: 0,
+                        strokeOpacity: 0,
+                        cornerRadiusTL: 6,
+                        cornerRadiusTR: 6
+                        });
+
+                        series.columns.template.adapters.add("fill", function(fill, target) {
+                        return chart.get("colors").getIndex(series.dataItems.indexOf(target.dataItem));
+                        })
+
+
+                        // pareto series
+                        var paretoSeries = chart.series.push(am5xy.LineSeries.new(root, {
+                        xAxis: xAxis,
+                        yAxis: paretoAxis,
+                        valueYField: "pareto",
+                        categoryXField: "country",
+                        stroke: root.interfaceColors.get("alternativeBackground"),
+                        maskBullets:false
+                        }));
+
+                        paretoSeries.bullets.push(function() {
+                        return am5.Bullet.new(root, {
+                            locationY: 1,
+                            sprite: am5.Circle.new(root, {
+                            radius: 5,
+                            fill: series.get("fill"),
+                            stroke:root.interfaceColors.get("alternativeBackground")
+                            })
+                        })
+                        })
+
+                        series.data.setAll(data);
+                        paretoSeries.data.setAll(data);
+
+                        // Make stuff animate on load
+                        // https://www.amcharts.com/docs/v5/concepts/animations/
+                        series.appear();
+                        chart.appear(1000, 100);
+
+                        }); // end am5.ready()
+                        </script>
+
+                        <!-- HTML -->
+                <div id="chartdiv"></div>
+            </div>
+
+            <div class="card-body fs--1">
+            </div>
+
+            //letak pape
+
+            <div class="card-body fs--1">
+            </div>
+
+
+            <div class="row g-3">
                 <div class="col-xxl-8">
                   <div class="card overflow-hidden h-100">
                     <div class="card-body p-0 management-calendar">
@@ -854,7 +1465,10 @@
                     <div class="card-footer bg-light p-0"><a class="btn btn-sm btn-link d-block py-2" href="#!"><span class="fas fa-plus me-1 fs--2"></span>Add New Task</a></div>
                   </div>
                 </div>
-              </div>
+            </div>
+
+
+
 
             @endif
 
