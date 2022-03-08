@@ -218,13 +218,6 @@
 
                 @endif
 
-                @if(Auth::check() && Auth::user()->role == "Pelanggan")
-
-                <div class="btn btn-success btn-lg">
-                    Pelanggan
-                </div>
-
-                @endif
 
 
 

@@ -328,8 +328,8 @@
                   <div class="row align-items-center">
                     <div class="col-lg-6"><img class="img-fluid" src="../assets/img/MBPJ-1.jpeg" alt=""></div>
                     <div class="col-lg-6 ps-lg-4 my-5 text-center text-lg-start">
-                      <h3 class="text-primary">Edit me!</h3>
-                      <p class="lead">Create Something Beautiful.</p><a class="btn btn-falcon-primary" href="/pembayaran/create">Buat Pembayaran</a>
+                      <h3 class="text-primary">Semak Penyelenggaraan!</h3>
+                      <p class="lead"></p><a class="btn btn-falcon-primary" href="/penyelenggaraan">Semak</a>
                     </div>
                   </div>
                 </div>
@@ -362,64 +362,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="card-body fs--1">
-              </div>
-
-              <div class="card mb-3 mb-lg-0">
-                <div class="card-header bg-light d-flex justify-content-between">
-                  <h5 class="mb-0">Events</h5>
-                </div>
-                <div class="card-body fs--1">
-                  <div class="row">
-                    <div class="col-md-6 h-100">
-                      <div class="d-flex btn-reveal-trigger">
-                        <div class="flex-1 position-relative ps-3">
-                          <h6 class="fs-0 mb-0"><a href="/audit">Audit Trail</a></h6>
-                          <p class="mb-1">Organized by <a href="#!" class="text-700">AID MIT</a></p>
-                          <p class="text-1000 mb-0">Access Audit Trail</p>
-                          <p class="text-1000 mb-0">Make adjustment</p>The Liberty Warehouse, New Yourk
-                          <div class="border-dashed-bottom my-3"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 h-100">
-                      <div class="d-flex btn-reveal-trigger">
-                        <div class="flex-1 position-relative ps-3">
-                          <h6 class="fs-0 mb-0"><a href="/user">Manage User</a></h6>
-                          <p class="mb-1">Organized by <a href="#!" class="text-700">American Nuclear Society</a></p>
-                          <p class="text-1000 mb-0">Manage Pelanggan</p>
-                          <p class="text-1000 mb-0">Manage Admin</p>Place: Workbar - Central Square, Cambridge
-                          <div class="border-dashed-bottom my-3"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 h-100">
-                      <div class="d-flex btn-reveal-trigger">
-                        <div class="flex-1 position-relative ps-3">
-                          <h6 class="fs-0 mb-0"><a href="/audit">Newmarket Nights</a></h6>
-                          <p class="mb-1">Organized by <a href="#!" class="text-700">University of Oxford</a></p>
-                          <p class="text-1000 mb-0">Time: 6:00AM</p>
-                          <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>Place: Cambridge Boat Club, Cambridge
-                          <div class="border-dashed-bottom my-3"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 h-100">
-                      <div class="d-flex btn-reveal-trigger">
-                        <div class="flex-1 position-relative ps-3">
-                          <h6 class="fs-0 mb-0"><a href="../../app/events/event-detail.html">31st Night Celebration</a></h6>
-                          <p class="mb-1">Organized by <a href="#!" class="text-700">Chamber Music Society</a></p>
-                          <p class="text-1000 mb-0">Time: 11:00PM</p>
-                          <p class="text-1000 mb-0">280 people interested</p>Place: Tavern on the Greend, New York
-                          <div class="border-dashed-bottom my-3"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
 
             <div class="card-body fs--1">
             </div>
@@ -436,9 +379,10 @@
                     </select>
                   </form>
                 </div>
+            </div>
 
 
-              <div class="card">
+            <div class="card">
                  <!-- Styles -->
                 <style>
                     #chartdiv {
@@ -1057,7 +1001,62 @@
                     <div id="chartdiv"></div>
               </div>
 
+            <div class="card-body fs--1">
+            </div>
 
+            <div class="card mb-3 mb-lg-0">
+                <div class="card-header bg-light d-flex justify-content-between">
+                  <h5 class="mb-0">Events</h5>
+                </div>
+                <div class="card-body fs--1">
+                  <div class="row">
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="/audit">Audit Trail</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">AID MIT</a></p>
+                          <p class="text-1000 mb-0">Access Audit Trail</p>
+                          <p class="text-1000 mb-0">Make adjustment</p>The Liberty Warehouse, New Yourk
+                          <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="/user">Manage User</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">American Nuclear Society</a></p>
+                          <p class="text-1000 mb-0">Manage Pelanggan</p>
+                          <p class="text-1000 mb-0">Manage Admin</p>Place: Workbar - Central Square, Cambridge
+                          <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="/audit">Newmarket Nights</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">University of Oxford</a></p>
+                          <p class="text-1000 mb-0">Time: 6:00AM</p>
+                          <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>Place: Cambridge Boat Club, Cambridge
+                          <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 h-100">
+                      <div class="d-flex btn-reveal-trigger">
+                        <div class="flex-1 position-relative ps-3">
+                          <h6 class="fs-0 mb-0"><a href="../../app/events/event-detail.html">31st Night Celebration</a></h6>
+                          <p class="mb-1">Organized by <a href="#!" class="text-700">Chamber Music Society</a></p>
+                          <p class="text-1000 mb-0">Time: 11:00PM</p>
+                          <p class="text-1000 mb-0">280 people interested</p>Place: Tavern on the Greend, New York
+                          <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
 
             @endif

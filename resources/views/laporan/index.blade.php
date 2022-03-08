@@ -9,9 +9,9 @@
           <div class="col-auto flex-lg-grow-1 flex-lg-basis-0 align-self-center">
             <h5 class="mb-0" data-anchor="data-anchor">Laporan</h5>
 
-          </div>
         </div>
     </div>
+</div>
     <div class="card">
         <!-- Styles -->
     <style>
