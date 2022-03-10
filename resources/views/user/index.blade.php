@@ -3,10 +3,10 @@
 
 <div class="card mb-3 mb-lg-0">
     <div class="card-header bg-light d-flex justify-content-between">
-      <h5 class="mb-0">User Activities</h5>
+      <h5 class="mb-0">Aktivity Pengguna</h5>
       <form>
         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-          <option selected="selected">Select Category</option>
+          <option selected="selected">Pilih Kategori</option>
           <option>Pelanggan</option>
            <option>Penyelia</option>
           <option>Admin</option>
@@ -170,7 +170,7 @@
     <div class="card-header">
         <div class="row flex-between-end">
           <div class="col-auto flex-lg-grow-1 flex-lg-basis-0 align-self-center">
-            <h5 class="mb-0" data-anchor="data-anchor">Manage Users</h5>
+            <h5 class="mb-0" data-anchor="data-anchor">Urus Pengguna</h5>
           </div>
           <div class="col-auto ms-auto">
 
