@@ -86,7 +86,7 @@
                 </tr>
                 <tr class="alert-success fw-bold">
                   <th class="text-sm-end">Jumlah Bayaran:</th>
-                  <td>RM {{ $pembayaran->jumlahBayaran }}</td>
+                  <td>RM {{ $pembayaran->totalPembayaran }}</td>
                 </tr>
               </tbody>
             </table>
@@ -109,19 +109,11 @@
                 <h6 class="mb-0 text-nowrap">Platinum web hosting package</h6>
                 <p class="mb-0">Down 35mb, Up 100mb</p>
               </td>
-              <td class="align-middle text-center">2</td>
-              <td class="align-middle text-end">$65.00</td>
-              <td class="align-middle text-end">$130.00</td>
-            </tr>
-            <tr>
-              <td class="align-middle">
-                <h6 class="mb-0 text-nowrap">2 Page website design</h6>
-                <p class="mb-0">Includes basic wireframes and responsive templates</p>
-              </td>
               <td class="align-middle text-center">1</td>
-              <td class="align-middle text-end">$2,100.00</td>
-              <td class="align-middle text-end">$2,100.00</td>
+              <td class="align-middle text-end">RM {{ $pembayaran->totalPembayaran }}</td>
+              <td class="align-middle text-end">RM {{ $pembayaran->totalPembayaran }}</td>
             </tr>
+
 
           </tbody>
         </table>
@@ -132,11 +124,11 @@
 
             <tr class="border-top">
               <th class="text-900">Jumlah Bayaran:</th>
-              <td class="fw-semi-bold">RM {{ $pembayaran->jumlahBayaran }}</td>
+              <td class="fw-semi-bold">RM {{ $pembayaran->totalPembayaran }}</td>
             </tr>
             <tr class="border-top border-top-2 fw-bolder text-900">
-              <th>Jumalah Semua:</th>
-              <td>RM {{ $pembayaran->jumlahBayaran }}</td>
+              <th>Jumlah Semua:</th>
+              <td>RM {{ $pembayaran->totalPembayaran }}</td>
             </tr>
           </table>
         </div>
